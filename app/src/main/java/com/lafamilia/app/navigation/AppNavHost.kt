@@ -12,6 +12,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
+import com.lafamilia.app.ui.auth.LoginScreen
 
 @Composable
 fun AppNavHost(
@@ -19,7 +20,7 @@ fun AppNavHost(
     startDestination: String = Screen.Login.route
 ) {
     NavHost(navController = navController, startDestination = startDestination) {
-        composable(Screen.Login.route) { PlaceholderScreen("Login") }
+        composable(Screen.Login.route) { LoginScreen() }
         composable(Screen.Register.route) { PlaceholderScreen("Register") }
         composable(Screen.ChatList.route) { PlaceholderScreen("Chat list") }
         composable(Screen.Profile.route) { PlaceholderScreen("Profile") }
