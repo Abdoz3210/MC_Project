@@ -6,19 +6,27 @@ captures/
 
 # Gradle caches
 .gradle/
-
 # Android Studio / IntelliJ (machine-specific)
 .idea/
 *.iml
 local.properties
-
 # Firebase config: contains project keys, never commit
 google-services.json
-
 # Signing keys
 *.jks
 *.keystore
-
 # OS files
 .DS_Store
 Thumbs.db
+.gradle
+/local.properties
+/.idea/caches
+/.idea/libraries
+/.idea/modules.xml
+/.idea/workspace.xml
+/.idea/navEditor.xml
+/.idea/assetWizardSettings.xml
+/build
+/captures
+.externalNativeBuild
+.cxx
