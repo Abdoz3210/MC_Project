@@ -20,7 +20,7 @@ fun AppNavHost(
     startDestination: String = Screen.Login.route
 ) {
     NavHost(navController = navController, startDestination = startDestination) {
-        composable(Screen.Login.route) { LoginScreen() }
+        composable(Screen.Login.route) { LoginScreen(onLoginSuccess = { navController.navigate(Screen.ChatList.route) { popUpTo(Screen.Login.route) { inclusive = true } } }) }
         composable(Screen.Register.route) { PlaceholderScreen("Register") }
         composable(Screen.ChatList.route) { PlaceholderScreen("Chat list") }
         composable(Screen.Profile.route) { PlaceholderScreen("Profile") }
