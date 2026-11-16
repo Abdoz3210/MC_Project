@@ -1,0 +1,24 @@
+# Build output
+build/
+*/build/
+.cxx/
+captures/
+
+# Gradle caches
+.gradle/
+
+# Android Studio / IntelliJ (machine-specific)
+.idea/
+*.iml
+local.properties
+
+# Firebase config: contains project keys, never commit
+google-services.json
+
+# Signing keys
+*.jks
+*.keystore
+
+# OS files
+.DS_Store
+Thumbs.db
