@@ -11,6 +11,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import com.lafamilia.app.navigation.AppNavHost
 import com.lafamilia.app.ui.theme.LaFamiliaTheme
 
 class MainActivity : ComponentActivity() {
@@ -18,13 +19,8 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            LaFamiliaTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
-                    )
-                }
+            LaFamiliaTheme {          // use the theme name that Android Studio generated in ui/theme/Theme.kt
+                AppNavHost()
             }
         }
     }
