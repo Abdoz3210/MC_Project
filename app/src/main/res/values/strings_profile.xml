@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="profile_title">Profile</string>
+    <string name="profile_back">Back</string>
+    <string name="profile_name">Display name</string>
+    <string name="profile_status">Status</string>
+    <string name="profile_save">Save changes</string>
+    <string name="profile_saved">Saved</string>
+    <string name="profile_save_error">Could not save. Check your connection.</string>
+    <string name="profile_sign_out">Sign out</string>
+</resources>

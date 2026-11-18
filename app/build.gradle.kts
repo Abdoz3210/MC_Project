@@ -68,3 +68,11 @@ dependencies {
 
 
 
+
+// Architecture components (Room KTX, WorkManager, DataStore)
+dependencies {
+    implementation(libs.androidx.room.ktx)
+    implementation(libs.androidx.work.runtime)
+    implementation(libs.androidx.datastore.preferences)
+    implementation(libs.kotlinx.coroutines.android)
+}
