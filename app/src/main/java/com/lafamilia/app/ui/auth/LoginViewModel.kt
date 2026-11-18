@@ -1,50 +1,48 @@
-
 package com.lafamilia.app.ui.auth
 
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import com.lafamilia.app.AppGraph
+import com.lafamilia.app.data.auth.AuthRepository
+import com.lafamilia.app.domain.AuthValidator
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
-import com.google.firebase.auth.FirebaseAuth
+import kotlinx.coroutines.launch
 
-class LoginViewModel : ViewModel() {
+class LoginViewModel(
+    private val authRepository: AuthRepository = AppGraph.authRepository
+) : ViewModel() {
 
     private val _uiState = MutableStateFlow(LoginUiState())
     val uiState: StateFlow<LoginUiState> = _uiState.asStateFlow()
 
-    fun onEmailChange(newEmail: String) {
-        _uiState.update { it.copy(email = newEmail, error = null) }
+    fun onEmailChange(value: String) {
+        _uiState.update { it.copy(email = value, validationError = null, serverError = null) }
     }
 
-    fun onPasswordChange(newPassword: String) {
-        _uiState.update { it.copy(password = newPassword, error = null) }
+    fun onPasswordChange(value: String) {
+        _uiState.update { it.copy(password = value, validationError = null, serverError = null) }
     }
-
-    private val auth = FirebaseAuth.getInstance()
 
     fun login() {
         val current = _uiState.value
-        if (current.email.isBlank() || current.password.isBlank()) {
-            _uiState.update { it.copy(error = "Enter email and password") }
+        if (current.isLoading) return
+
+        val problem = AuthValidator.validateLogin(current.email, current.password)
+        if (problem != null) {
+            _uiState.update { it.copy(validationError = problem) }
             return
         }
 
-        _uiState.update { it.copy(isLoading = true, error = null) }
-
-        auth.signInWithEmailAndPassword(current.email.trim(), current.password)
-            .addOnCompleteListener { task ->
-                if (task.isSuccessful) {
-                    _uiState.update { it.copy(isLoading = false, isLoggedIn = true) }
-                } else {
-                    _uiState.update {
-                        it.copy(
-                            isLoading = false,
-                            error = task.exception?.localizedMessage ?: "Login failed"
-                        )
-                    }
+        _uiState.update { it.copy(isLoading = true, validationError = null, serverError = null) }
+        viewModelScope.launch {
+            authRepository.login(current.email.trim(), current.password)
+                .onSuccess { _uiState.update { it.copy(isLoading = false, isLoggedIn = true) } }
+                .onFailure { error ->
+                    _uiState.update { it.copy(isLoading = false, serverError = error.localizedMessage.orEmpty()) }
                 }
-            }
+        }
     }
 }
-

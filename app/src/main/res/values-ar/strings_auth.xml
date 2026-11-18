@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="auth_login_title">مرحبًا بعودتك</string>
+    <string name="auth_login_subtitle">سجّل الدخول للمتابعة إلى لا فاميليا</string>
+    <string name="auth_register_title">أنشئ حسابك</string>
+    <string name="auth_register_subtitle">يستغرق الأمر دقيقة واحدة فقط</string>
+    <string name="auth_name">الاسم المعروض</string>
+    <string name="auth_email">البريد الإلكتروني</string>
+    <string name="auth_password">كلمة المرور</string>
+    <string name="auth_confirm_password">تأكيد كلمة المرور</string>
+    <string name="auth_login_button">تسجيل الدخول</string>
+    <string name="auth_register_button">إنشاء حساب</string>
+    <string name="auth_go_register">مستخدم جديد؟ أنشئ حسابًا</string>
+    <string name="auth_go_login">لديك حساب بالفعل؟ سجّل الدخول</string>
+    <string name="auth_show">إظهار</string>
+    <string name="auth_hide">إخفاء</string>
+    <string name="auth_password_hint">استخدم 6 أحرف على الأقل. اجمع بين الحروف والأرقام والرموز لكلمة مرور أقوى.</string>
+    <string name="auth_strength_weak">ضعيفة</string>
+    <string name="auth_strength_medium">متوسطة</string>
+    <string name="auth_strength_strong">قوية</string>
+    <string name="auth_err_empty">أدخل بريدك الإلكتروني وكلمة المرور</string>
+    <string name="auth_err_name">أدخل اسمك</string>
+    <string name="auth_err_email">أدخل بريدًا إلكترونيًا صحيحًا</string>
+    <string name="auth_err_password_short">يجب أن تتكون كلمة المرور من 6 أحرف على الأقل</string>
+    <string name="auth_err_mismatch">كلمتا المرور غير متطابقتين</string>
+    <string name="auth_err_generic">حدث خطأ ما. تحقق من الاتصال وحاول مرة أخرى.</string>
+</resources>

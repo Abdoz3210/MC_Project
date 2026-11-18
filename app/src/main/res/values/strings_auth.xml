@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="auth_login_title">Welcome back</string>
+    <string name="auth_login_subtitle">Log in to continue to La Familia</string>
+    <string name="auth_register_title">Create your account</string>
+    <string name="auth_register_subtitle">It only takes a minute</string>
+    <string name="auth_name">Display name</string>
+    <string name="auth_email">Email</string>
+    <string name="auth_password">Password</string>
+    <string name="auth_confirm_password">Confirm password</string>
+    <string name="auth_login_button">Log in</string>
+    <string name="auth_register_button">Create account</string>
+    <string name="auth_go_register">New here? Create an account</string>
+    <string name="auth_go_login">Already have an account? Log in</string>
+    <string name="auth_show">Show</string>
+    <string name="auth_hide">Hide</string>
+    <string name="auth_password_hint">Use at least 6 characters. Mix letters, numbers and symbols for a stronger password.</string>
+    <string name="auth_strength_weak">Weak</string>
+    <string name="auth_strength_medium">Medium</string>
+    <string name="auth_strength_strong">Strong</string>
+    <string name="auth_err_empty">Enter your email and password</string>
+    <string name="auth_err_name">Enter your name</string>
+    <string name="auth_err_email">Enter a valid email address</string>
+    <string name="auth_err_password_short">Password must be at least 6 characters</string>
+    <string name="auth_err_mismatch">Passwords do not match</string>
+    <string name="auth_err_generic">Something went wrong. Check your connection and try again.</string>
+</resources>
