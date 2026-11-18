@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="chat_back">Back</string>
+    <string name="chat_hint">Type a message</string>
+    <string name="chat_send">Send</string>
+    <string name="chat_empty">No messages yet. Say hello!</string>
+    <string name="chat_editing">Editing message</string>
+    <string name="chat_cancel">Cancel</string>
+    <string name="chat_message_actions">Message</string>
+    <string name="chat_edit">Edit</string>
+    <string name="chat_delete">Delete</string>
+    <string name="chat_delete_title">Delete this message?</string>
+    <string name="chat_delete_body">This cannot be undone.</string>
+    <string name="chat_tap_retry">tap to retry</string>
+    <string name="chat_status_queued">Waiting</string>
+    <string name="chat_status_sending">Sending</string>
+    <string name="chat_status_sent">Sent</string>
+    <string name="chat_status_delivered">Delivered</string>
+    <string name="chat_status_read">Read</string>
+    <string name="chat_status_failed">Failed</string>
+</resources>
