@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="profile_title">الملف الشخصي</string>
+    <string name="profile_back">رجوع</string>
+    <string name="profile_name">الاسم المعروض</string>
+    <string name="profile_status">الحالة</string>
+    <string name="profile_save">حفظ التغييرات</string>
+    <string name="profile_saved">تم الحفظ</string>
+    <string name="profile_save_error">تعذّر الحفظ. تحقق من الاتصال.</string>
+    <string name="profile_sign_out">تسجيل الخروج</string>
+</resources>
