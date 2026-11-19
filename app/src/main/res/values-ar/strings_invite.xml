@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="invite_title">الدعوة والملاحظات</string>
+    <string name="invite_body">أخبر عائلتك وأصدقاءك عن لا فاميليا، أو أرسل لنا رأيك.</string>
+    <string name="invite_button">دعوة الأصدقاء</string>
+    <string name="invite_feedback_button">إرسال ملاحظات</string>
+    <string name="invite_chooser_title">الدعوة عبر</string>
+    <string name="invite_no_app">لا يوجد تطبيق للقيام بذلك</string>
+</resources>
