@@ -103,9 +103,11 @@ MC_Project/
 ### Prerequisites
 
 - Android Studio (current stable release)
-- JDK 17 or newer (bundled with Android Studio)
+- An internet connection for the first Gradle sync. The project runs Gradle on **JDK 25**
+  (pinned in `gradle/gradle-daemon-jvm.properties`); if it is not installed, Gradle
+  downloads it automatically during the first sync.
 - An Android emulator or a physical device running Android 8.0 (API 26) or newer
-- Access to the team's Firebase project
+- A `google-services.json` file (see [Firebase configuration](#firebase-configuration))
 
 ### Run the app
 
@@ -114,20 +116,58 @@ MC_Project/
    git clone https://github.com/Abdoz3210/MC_Project.git
    cd MC_Project
    ```
-2. Open the folder in Android Studio and wait for the Gradle sync to finish.
-3. Add the Firebase configuration file (see below).
+2. Add `app/google-services.json` (see [Firebase configuration](#firebase-configuration)).
+   Without it the first Gradle sync fails.
+3. Open the folder in Android Studio and wait for the Gradle sync to finish.
 4. Select a device and press **Run**.
 
 ### Firebase configuration
 
-The app needs a `google-services.json` file for the team's Firebase project.
+The app uses Firebase Authentication (email and password) and Cloud Firestore. It needs a
+`google-services.json` file in the `app/` directory. The file is listed in `.gitignore`
+and is **not** in the repository, so it has to be added before the first build.
 
-1. In the Firebase console, open **Project settings** and download
-   `google-services.json` for the Android app (`com.lafamilia.app`).
-2. Place it in the `app/` directory.
-3. The file is listed in `.gitignore` and must not be committed.
+#### Option 1 (recommended): use the team's project
 
-Ask the repository owner to add you to the Firebase project if you do not have access.
+The team sends `google-services.json` together with the submission.
+
+1. Copy the file to `app/google-services.json`.
+2. Sync Gradle and run the app.
+
+The team's project is already set up: Email/Password sign-in is enabled, the Firestore
+database exists and the security rules are published, so you can register an account
+and start chatting straight away.
+
+Team members can also download the file themselves: Firebase console → **Project
+settings** → *Your apps* → the Android app `com.lafamilia.app` → download `google-services.json`.
+
+#### Option 2: use your own Firebase project
+
+1. In the [Firebase console](https://console.firebase.google.com), create a project.
+2. Add an **Android app** with the package name **`com.lafamilia.app`**, then download
+   `google-services.json` and copy it to `app/`.
+3. **Authentication** → *Sign-in method* → enable **Email/Password**.
+4. **Firestore Database** → *Create database* (any location, production mode).
+5. **Firestore Database** → **Rules** → replace the content with
+   [`docs/firestore.rules`](docs/firestore.rules) → **Publish**.
+
+No indexes need to be created: the app's queries (users by name, conversations by member)
+use the indexes Firestore builds automatically. The `users` and `conversations`
+collections are created by the app when the first account registers and the first chat
+starts.
+
+To try messaging, register **two accounts** (for example on two emulators, or sign out
+and in again on one) and start a chat from the **+** button.
+
+#### Troubleshooting
+
+| Problem | Cause and fix |
+|---|---|
+| Build fails with `File google-services.json is missing` | The file is not in `app/`. Add it (Option 1 or 2) and sync again. |
+| Build fails with `No matching client found for package name` | The file belongs to an app with a different package name. Download it for `com.lafamilia.app`. |
+| Sign-in works, but the chat list stays empty and new chat shows "Could not search" | The Firestore rules are not published. Publish [`docs/firestore.rules`](docs/firestore.rules) (Option 2, step 5). |
+| Registering fails immediately | Email/Password sign-in is not enabled (Option 2, step 3). |
+| First sync fails while downloading a JDK or Gradle | The first sync needs internet to download JDK 25 and the Gradle distribution. Connect and sync again. |
 
 ## Team
 
