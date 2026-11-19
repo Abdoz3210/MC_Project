@@ -7,8 +7,7 @@ data class User(
     val id: String,
     val name: String,
     val username: String = "",
-    val status: String = "",
-    val avatarUrl: String? = null
+    val status: String = ""
 )
 
 data class Conversation(
