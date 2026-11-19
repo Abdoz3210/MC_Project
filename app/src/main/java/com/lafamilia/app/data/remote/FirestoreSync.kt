@@ -8,7 +8,9 @@ import com.google.firebase.firestore.QuerySnapshot
 import com.lafamilia.app.data.local.AppDatabase
 import com.lafamilia.app.data.local.ConversationEntity
 import com.lafamilia.app.data.local.MessageEntity
+import com.lafamilia.app.data.local.parseStatus
 import com.lafamilia.app.domain.MessageStatus
+import com.lafamilia.app.domain.MessageStatusRules
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 
@@ -107,31 +109,54 @@ class FirestoreSync(
         val messages = database.messageDao()
         for (change in snapshot.documentChanges) {
             val document = change.document
-            when (change.type) {
-                DocumentChange.Type.REMOVED -> messages.delete(document.id)
-                DocumentChange.Type.MODIFIED -> messages.setBody(document.id, document.getString("body").orEmpty())
-                DocumentChange.Type.ADDED -> {
-                    val existing = messages.get(document.id)
-                    val sender = document.getString("senderId").orEmpty()
-                    if (existing != null) {
-                        // Our own message coming back from the server: it is delivered now.
-                        if (existing.status != MessageStatus.SENT.name) messages.setStatus(existing.id, MessageStatus.SENT.name)
-                    } else {
-                        messages.upsert(
-                            MessageEntity(
-                                id = document.id,
-                                conversationId = conversationId,
-                                senderId = sender,
-                                body = document.getString("body").orEmpty(),
-                                status = MessageStatus.SENT.name,
-                                createdAt = document.getLong("createdAt") ?: 0L
-                            )
+            val sender = document.getString("senderId").orEmpty()
+            val mine = sender == userId
+            if (change.type == DocumentChange.Type.REMOVED) {
+                messages.delete(document.id)
+                continue
+            }
+            val existing = messages.get(document.id)
+            when {
+                existing == null -> {
+                    messages.upsert(
+                        MessageEntity(
+                            id = document.id,
+                            conversationId = conversationId,
+                            senderId = sender,
+                            body = document.getString("body").orEmpty(),
+                            status = if (mine) receiptStatus(document).name else MessageStatus.SENT.name,
+                            createdAt = document.getLong("createdAt") ?: 0L
                         )
-                        if (sender != userId) database.conversationDao().addUnread(conversationId, 1)
+                    )
+                    if (!mine) {
+                        database.conversationDao().addUnread(conversationId, 1)
+                        reportDelivered(document)
                     }
+                }
+                mine -> {
+                    // Our own message: the receiver's receipts move it to DELIVERED / READ.
+                    if (change.type == DocumentChange.Type.MODIFIED) messages.setBody(existing.id, document.getString("body").orEmpty())
+                    val next = MessageStatusRules.advance(parseStatus(existing.status), receiptStatus(document))
+                    if (next.name != existing.status) messages.setStatus(existing.id, next.name)
+                }
+                change.type == DocumentChange.Type.MODIFIED -> {
+                    // Their message was edited.
+                    messages.setBody(existing.id, document.getString("body").orEmpty())
                 }
             }
         }
+    }
+
+    private fun receiptStatus(document: DocumentSnapshot): MessageStatus =
+        MessageStatusRules.fromReceipts(
+            deliveredAt = document.getLong(MessageSender.DELIVERED_AT),
+            readAt = document.getLong(MessageSender.READ_AT)
+        )
+
+    /** Tells the sender this phone has the message (once). Firestore queues it while offline. */
+    private fun reportDelivered(document: DocumentSnapshot) {
+        if (document.getLong(MessageSender.DELIVERED_AT) != null) return
+        document.reference.update(MessageSender.DELIVERED_AT, System.currentTimeMillis())
     }
 
     companion object {
