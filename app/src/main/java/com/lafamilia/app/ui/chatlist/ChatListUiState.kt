@@ -17,9 +17,16 @@ data class ChatListUiState(
     val isLoading: Boolean = true,
     val newChat: NewChatState? = null,
     val pendingDelete: Conversation? = null,
+    /** The chat whose long-press menu (pin, mute, archive, remove) is open. */
+    val menuFor: Conversation? = null,
+    /** true while the "Archived" section is shown instead of the main list. */
+    val showArchived: Boolean = false,
     /** One-shot navigation request: set when a chat should open, cleared once it did. */
     val openChatId: String? = null
 ) {
     val visibleConversations: List<Conversation>
-        get() = ConversationFilter.filter(conversations, query)
+        get() = ConversationFilter.arrange(conversations, query, archived = showArchived)
+
+    val archivedCount: Int
+        get() = conversations.count { it.isArchived }
 }

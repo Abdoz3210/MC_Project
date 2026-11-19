@@ -25,7 +25,13 @@ service cloud.firestore {
         }
         allow read: if isMember();
         allow create: if isMember() && request.resource.data.senderId == request.auth.uid;
-        allow update, delete: if isMember() && resource.data.senderId == request.auth.uid;
+        // The sender may edit their message. The other member may only add the
+        // delivered / read receipts (issue #45), nothing else.
+        allow update: if isMember() && (
+          resource.data.senderId == request.auth.uid
+          || request.resource.data.diff(resource.data).affectedKeys().hasOnly(['deliveredAt', 'readAt'])
+        );
+        allow delete: if isMember() && resource.data.senderId == request.auth.uid;
       }
     }
   }
