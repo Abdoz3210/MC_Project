@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="chatlist_search_hint">ابحث في المحادثات</string>
+    <string name="chatlist_profile">الملف الشخصي</string>
+    <string name="chatlist_settings">الإعدادات</string>
+    <string name="chatlist_new_chat">محادثة جديدة</string>
+    <string name="chatlist_find_user_hint">ابحث عن أشخاص بالاسم</string>
+    <string name="chatlist_no_users">لم يتم العثور على مستخدمين</string>
+    <string name="chatlist_search_error">تعذّر البحث. تحقق من الاتصال.</string>
+    <string name="chatlist_cancel">إلغاء</string>
+    <string name="chatlist_empty_title">لا توجد محادثات بعد</string>
+    <string name="chatlist_empty_body">اضغط على زر + لبدء المحادثة.</string>
+    <string name="chatlist_no_results">لا توجد محادثات مطابقة لبحثك</string>
+    <string name="chatlist_no_messages">لا توجد رسائل بعد</string>
+    <string name="chatlist_delete_title">إزالة هذه المحادثة؟</string>
+    <string name="chatlist_delete_body">ستختفي من قائمتك.</string>
+    <string name="chatlist_delete">إزالة</string>
+</resources>
