@@ -63,6 +63,14 @@ interface MessageDao {
     @Query("UPDATE messages SET status = :status WHERE id = :id")
     suspend fun setStatus(id: String, status: String)
 
+    /** Marks a message SENT only if it was still waiting, so a faster DELIVERED/READ is not overwritten. */
+    @Query("UPDATE messages SET status = 'SENT' WHERE id = :id AND status IN ('QUEUED', 'SENDING')")
+    suspend fun markSentIfPending(id: String)
+
+    /** Messages from the other person that this phone has not yet reported as read. */
+    @Query("SELECT * FROM messages WHERE conversationId = :conversationId AND senderId != :me AND status != 'READ'")
+    suspend fun unreadIncoming(conversationId: String, me: String): List<MessageEntity>
+
     @Query("UPDATE messages SET body = :body WHERE id = :id")
     suspend fun setBody(id: String, body: String)
 
