@@ -15,4 +15,15 @@
     <string name="chatlist_delete_title">Remove this chat?</string>
     <string name="chatlist_delete_body">It will disappear from your list.</string>
     <string name="chatlist_delete">Remove</string>
+    <!-- Pin, mute, archive (issue #42) -->
+    <string name="chatlist_pin">Pin</string>
+    <string name="chatlist_unpin">Unpin</string>
+    <string name="chatlist_mute">Mute</string>
+    <string name="chatlist_unmute">Unmute</string>
+    <string name="chatlist_archive">Archive</string>
+    <string name="chatlist_unarchive">Unarchive</string>
+    <string name="chatlist_pinned">Pinned</string>
+    <string name="chatlist_muted">Muted</string>
+    <string name="chatlist_archived">Archived</string>
+    <string name="chatlist_back">Back</string>
 </resources>
