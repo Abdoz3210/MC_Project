@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="chat_back">رجوع</string>
+    <string name="chat_hint">اكتب رسالة</string>
+    <string name="chat_send">إرسال</string>
+    <string name="chat_empty">لا توجد رسائل بعد. قل مرحبًا!</string>
+    <string name="chat_editing">تعديل الرسالة</string>
+    <string name="chat_cancel">إلغاء</string>
+    <string name="chat_message_actions">الرسالة</string>
+    <string name="chat_edit">تعديل</string>
+    <string name="chat_delete">حذف</string>
+    <string name="chat_delete_title">حذف هذه الرسالة؟</string>
+    <string name="chat_delete_body">لا يمكن التراجع عن هذا الإجراء.</string>
+    <string name="chat_tap_retry">اضغط لإعادة المحاولة</string>
+    <string name="chat_status_queued">في الانتظار</string>
+    <string name="chat_status_sending">جارٍ الإرسال</string>
+    <string name="chat_status_sent">تم الإرسال</string>
+    <string name="chat_status_delivered">تم التسليم</string>
+    <string name="chat_status_read">تمت القراءة</string>
+    <string name="chat_status_failed">فشل</string>
+</resources>
