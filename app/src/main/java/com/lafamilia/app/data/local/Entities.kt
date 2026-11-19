@@ -1,5 +1,6 @@
 package com.lafamilia.app.data.local
 
+import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.Index
 import androidx.room.PrimaryKey
@@ -11,7 +12,10 @@ data class ConversationEntity(
     val title: String,
     val lastMessageText: String,
     val lastMessageAt: Long,
-    val unreadCount: Int
+    val unreadCount: Int,
+    @ColumnInfo(defaultValue = "0") val pinned: Boolean = false,
+    @ColumnInfo(defaultValue = "0") val muted: Boolean = false,
+    @ColumnInfo(defaultValue = "0") val archived: Boolean = false
 )
 
 /** One row per message. [status] stores a MessageStatus name, e.g. "QUEUED". */

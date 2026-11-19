@@ -15,4 +15,15 @@
     <string name="chatlist_delete_title">إزالة هذه المحادثة؟</string>
     <string name="chatlist_delete_body">ستختفي من قائمتك.</string>
     <string name="chatlist_delete">إزالة</string>
+    <!-- تثبيت وكتم وأرشفة (issue #42) -->
+    <string name="chatlist_pin">تثبيت</string>
+    <string name="chatlist_unpin">إلغاء التثبيت</string>
+    <string name="chatlist_mute">كتم</string>
+    <string name="chatlist_unmute">إلغاء الكتم</string>
+    <string name="chatlist_archive">أرشفة</string>
+    <string name="chatlist_unarchive">إلغاء الأرشفة</string>
+    <string name="chatlist_pinned">مثبّتة</string>
+    <string name="chatlist_muted">مكتومة</string>
+    <string name="chatlist_archived">المؤرشفة</string>
+    <string name="chatlist_back">رجوع</string>
 </resources>

@@ -11,7 +11,10 @@ fun ConversationEntity.toDomain() = Conversation(
     title = title,
     lastMessageText = lastMessageText,
     lastMessageAt = lastMessageAt,
-    unreadCount = unreadCount
+    unreadCount = unreadCount,
+    isPinned = pinned,
+    isMuted = muted,
+    isArchived = archived
 )
 
 fun MessageEntity.toDomain() = Message(

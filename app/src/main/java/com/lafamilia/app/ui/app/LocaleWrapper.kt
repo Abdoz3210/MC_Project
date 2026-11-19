@@ -11,6 +11,7 @@ import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalLayoutDirection
 import androidx.compose.ui.unit.LayoutDirection
+import androidx.core.text.layoutDirection
 import com.lafamilia.app.data.settings.AppLanguage
 import java.util.Locale
 
@@ -58,6 +59,5 @@ fun LocaleWrapper(language: AppLanguage, content: @Composable () -> Unit) {
 
 /** Tiny helper so the direction rule is in one place. */
 internal object TextUtilsRtl {
-    fun isRtl(locale: Locale): Boolean =
-        android.text.TextUtils.getLayoutDirectionFromLocale(locale) == android.view.View.LAYOUT_DIRECTION_RTL
+    fun isRtl(locale: Locale): Boolean = locale.layoutDirection == android.view.View.LAYOUT_DIRECTION_RTL
 }
