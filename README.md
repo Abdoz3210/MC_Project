@@ -37,20 +37,44 @@ design is inspired by the Pulse Chat web application.
 
 ## Features
 
+### Scope
+
+La Familia is a one-to-one text messaging app for Android. A user registers with
+email and password, finds other users by name, and chats with them in real time.
+Every message is saved on the device first (Room) and synced through Firebase
+Firestore, so conversations open without a connection and messages written offline
+are sent automatically when the device reconnects. The app runs in English and
+Arabic (right-to-left) with light and dark themes. It does not cover calls, media
+or group administration.
+
+The design follows the **Pulse Chat** web app, which we used as the reference for two
+ideas: a visible per-message status (`SENT` → `DELIVERED` → `READ`, or `FAILED` with
+retry) and an offline outbox that queues messages and retries them.
+
+### Must-have (Phase 1)
+
 | Area | Feature |
 |---|---|
 | Accounts | Register, sign in, sign out, persistent session (Firebase Authentication) |
-| Conversations | Conversation list with last message, time, and unread count |
-| Messaging | Send and receive text messages with status: sent, delivered, read |
-| Offline support | Local storage with Room; unsent messages are queued and retried with backoff |
-| Sharing | Share an invite link with an Android Intent |
-| Settings | Language (English / Arabic with RTL), light and dark theme |
-| Profile | Display name and presence status |
+| Conversations | Conversation list with last message, time, and unread count; search; start a new chat |
+| Messaging | Send, edit, delete text messages; status shown on each message: queued, sending, sent, delivered, read, failed (tap to retry) |
+| Offline support | Room is the single source of truth; unsent messages are queued and retried with WorkManager and exponential backoff |
+| Sharing | Invite friends and send feedback with Android Intents |
+| Settings | Language (English / Arabic with RTL), light / dark / system theme, notifications, saved with DataStore |
+| Profile | Display name and status |
 
-Planned if time allows: group chats, typing indicators, push notifications, and
-pin / mute / archive for conversations.
+### Nice-to-have (if time allows)
+
+- Read receipts that update the sender's status to delivered and read in real time
+- Undo after deleting a message
+- Pin, mute and archive conversations
+- Typing indicator and online presence
+- Offline banner, responsive landscape and tablet layouts
+- Group chats and push notifications
 
 **Out of scope:** voice and video calls, file and image sharing, end-to-end encryption.
+
+Wireframes and the navigation graph are in [`docs/wireframes/`](docs/wireframes/).
 
 ## Tech stack
 
@@ -188,7 +212,8 @@ test: add unit tests for offline queue
 
 ## Documentation
 
-- Wireframes and ER diagram: [`docs/`](docs/)
+- Wireframes and navigation graph: [`docs/wireframes/`](docs/wireframes/)
+- Architecture and data model diagrams: [`docs/diagrams/`](docs/diagrams/)
 - 2-page abstract (ACM format): `docs/abstract.pdf` _(added in M5)_
 
 ---
