@@ -16,7 +16,11 @@ data class Conversation(
     val title: String,
     val lastMessageText: String,
     val lastMessageAt: Long,
-    val unreadCount: Int
+    val unreadCount: Int,
+    /** Per-user choices (issue #42): each member pins, mutes or archives a chat for themselves only. */
+    val isPinned: Boolean = false,
+    val isMuted: Boolean = false,
+    val isArchived: Boolean = false
 )
 
 data class Message(

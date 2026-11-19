@@ -34,6 +34,15 @@ class MappersTest {
         val model = entity.toDomain()
         assertEquals("Mom", model.title)
         assertEquals(3, model.unreadCount)
+        assertEquals(false, model.isPinned)
+    }
+
+    @Test
+    fun conversationEntityMapsPinMuteArchive() {
+        val model = ConversationEntity("c1", "Mom", "hi", 10L, 0, pinned = true, muted = true, archived = true).toDomain()
+        assertEquals(true, model.isPinned)
+        assertEquals(true, model.isMuted)
+        assertEquals(true, model.isArchived)
     }
 
     @Test

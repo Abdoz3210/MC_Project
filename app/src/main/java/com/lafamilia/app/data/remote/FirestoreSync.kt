@@ -74,10 +74,17 @@ class FirestoreSync(
                 title = title,
                 lastMessageText = document.getString("lastMessageText").orEmpty(),
                 lastMessageAt = document.getLong("lastMessageAt") ?: 0L,
-                unreadCount = existing?.unreadCount ?: 0
+                unreadCount = existing?.unreadCount ?: 0,
+                pinned = document.hasMember(PINNED_BY, userId),
+                muted = document.hasMember(MUTED_BY, userId),
+                archived = document.hasMember(ARCHIVED_BY, userId)
             )
         )
     }
+
+    /** True when the array field [field] (a list of user ids) contains [uid]. */
+    private fun DocumentSnapshot.hasMember(field: String, uid: String): Boolean =
+        (get(field) as? List<*>)?.contains(uid) == true
 
     private fun listenToMessages(conversationId: String) {
         synchronized(messageListeners) {
@@ -125,5 +132,12 @@ class FirestoreSync(
                 }
             }
         }
+    }
+
+    companion object {
+        /** Per-user conversation choices live on the conversation document as lists of user ids. */
+        const val PINNED_BY = "pinnedBy"
+        const val MUTED_BY = "mutedBy"
+        const val ARCHIVED_BY = "archivedBy"
     }
 }

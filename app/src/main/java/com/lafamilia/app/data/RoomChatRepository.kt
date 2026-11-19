@@ -158,6 +158,31 @@ class RoomChatRepository(
             .update("members", FieldValue.arrayRemove(currentUserId))
     }
 
+    override suspend fun setPinned(conversationId: String, pinned: Boolean) {
+        conversationDao.setPinned(conversationId, pinned)
+        saveChoice(conversationId, FirestoreSync.PINNED_BY, pinned)
+    }
+
+    override suspend fun setMuted(conversationId: String, muted: Boolean) {
+        conversationDao.setMuted(conversationId, muted)
+        saveChoice(conversationId, FirestoreSync.MUTED_BY, muted)
+    }
+
+    override suspend fun setArchived(conversationId: String, archived: Boolean) {
+        conversationDao.setArchived(conversationId, archived)
+        saveChoice(conversationId, FirestoreSync.ARCHIVED_BY, archived)
+    }
+
+    /**
+     * Room is updated first so the list changes at once; Firestore keeps the choice per user
+     * (the user's id is added to or removed from a list on the conversation), so it survives a
+     * reinstall and follows the user to another phone. Firestore queues the write while offline.
+     */
+    private fun saveChoice(conversationId: String, field: String, enabled: Boolean) {
+        val change = if (enabled) FieldValue.arrayUnion(currentUserId) else FieldValue.arrayRemove(currentUserId)
+        firestore.collection(MessageSender.CONVERSATIONS).document(conversationId).update(field, change)
+    }
+
     private fun enqueueDelivery(messageId: String) {
         val request = OneTimeWorkRequest.Builder(SendMessageWorker::class.java)
             .setInputData(Data.Builder().putString(SendMessageWorker.KEY_MESSAGE_ID, messageId).build())
