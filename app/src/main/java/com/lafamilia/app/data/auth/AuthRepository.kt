@@ -5,6 +5,7 @@ import com.google.firebase.auth.UserProfileChangeRequest
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.SetOptions
 import com.lafamilia.app.util.await
+import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.withTimeout
 import kotlinx.coroutines.withTimeoutOrNull
 
@@ -36,8 +37,13 @@ class AuthRepository(
         user.updateProfile(request).await()
         // The account exists now. A failure to write the public profile must not make
         // registration look failed; login will retry it (ensureProfileDocument).
-        runCatching { writeProfileDocument(user.uid, name, email, DEFAULT_STATUS) }
-        Unit
+        try {
+            writeProfileDocument(user.uid, name, email, DEFAULT_STATUS)
+        } catch (e: CancellationException) {
+            throw e
+        } catch (e: Exception) {
+            // ignored on purpose: retried by ensureProfileDocument() on the next login
+        }
     }
 
     suspend fun loadProfile(): ProfileData {

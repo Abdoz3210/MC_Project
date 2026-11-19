@@ -1,6 +1,7 @@
 package com.lafamilia.app.data
 
 import android.content.SharedPreferences
+import androidx.core.content.edit
 import androidx.work.BackoffPolicy
 import androidx.work.Constraints
 import androidx.work.Data
@@ -225,7 +226,7 @@ class RoomChatRepository(
             val previousOwner = prefs.getString(KEY_OWNER, null)
             if (previousOwner != uid) {
                 withContext(Dispatchers.IO) { database.clearAllTables() }
-                prefs.edit().putString(KEY_OWNER, uid).apply()
+                prefs.edit { putString(KEY_OWNER, uid) }
             }
             if (uid.isNotEmpty()) sync.start(uid)
         }
