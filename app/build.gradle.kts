@@ -77,7 +77,7 @@ dependencies {
 
 
 
-// ---- La Familia extra dependencies (added by apply_part_1) ----
+// Architecture components (Room KTX, WorkManager, DataStore)
 dependencies {
     implementation(libs.androidx.room.ktx)
     implementation(libs.androidx.work.runtime)
