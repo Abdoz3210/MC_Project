@@ -96,6 +96,19 @@ class InMemoryChatRepository(
         messages.update { map -> map - conversationId }
     }
 
+    override suspend fun setPinned(conversationId: String, pinned: Boolean) =
+        replaceConversation(conversationId) { it.copy(isPinned = pinned) }
+
+    override suspend fun setMuted(conversationId: String, muted: Boolean) =
+        replaceConversation(conversationId) { it.copy(isMuted = muted) }
+
+    override suspend fun setArchived(conversationId: String, archived: Boolean) =
+        replaceConversation(conversationId) { it.copy(isArchived = archived) }
+
+    private fun replaceConversation(id: String, change: (Conversation) -> Conversation) {
+        conversations.update { list -> list.map { if (it.id == id) change(it) else it } }
+    }
+
     private fun replaceMessage(id: String, change: (Message) -> Message) {
         messages.update { map ->
             map.mapValues { (_, list) -> list.map { if (it.id == id) change(it) else it } }

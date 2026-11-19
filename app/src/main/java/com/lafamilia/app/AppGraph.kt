@@ -34,7 +34,9 @@ object AppGraph {
         val firestore = FirebaseFirestore.getInstance()
         val scope = CoroutineScope(SupervisorJob() + Dispatchers.IO)
 
-        database = Room.databaseBuilder(app, AppDatabase::class.java, "lafamilia.db").build()
+        database = Room.databaseBuilder(app, AppDatabase::class.java, "lafamilia.db")
+            .addMigrations(AppDatabase.MIGRATION_1_2)
+            .build()
         messageSender = MessageSender(database, firestore)
         chatRepository = RoomChatRepository(
             database = database,

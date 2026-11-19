@@ -64,4 +64,19 @@ class InMemoryChatRepositoryTest {
         repository.leaveConversation("demo-dad")
         assertTrue(repository.observeConversations().first().none { it.id == "demo-dad" })
     }
+
+    @Test
+    fun pinMuteAndArchiveAreSavedAndCanBeUndone() = runBlocking {
+        repository.setPinned("demo-dad", true)
+        repository.setMuted("demo-dad", true)
+        repository.setArchived("demo-dad", true)
+        var dad = repository.observeConversations().first().first { it.id == "demo-dad" }
+        assertTrue(dad.isPinned && dad.isMuted && dad.isArchived)
+
+        repository.setPinned("demo-dad", false)
+        repository.setMuted("demo-dad", false)
+        repository.setArchived("demo-dad", false)
+        dad = repository.observeConversations().first().first { it.id == "demo-dad" }
+        assertTrue(!dad.isPinned && !dad.isMuted && !dad.isArchived)
+    }
 }

@@ -44,4 +44,13 @@ interface ChatRepository {
 
     /** Removes the conversation from the current user's list. */
     suspend fun leaveConversation(conversationId: String)
+
+    /** Pinned chats stay at the top of the list. Only affects the current user. */
+    suspend fun setPinned(conversationId: String, pinned: Boolean)
+
+    /** Muted chats still receive messages but do not highlight their unread badge. */
+    suspend fun setMuted(conversationId: String, muted: Boolean)
+
+    /** Archived chats move out of the main list into the "Archived" section. */
+    suspend fun setArchived(conversationId: String, archived: Boolean)
 }
