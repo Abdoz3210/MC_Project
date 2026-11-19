@@ -189,7 +189,7 @@ test: add unit tests for offline queue
 ## Documentation
 
 - Wireframes and ER diagram: [`docs/`](docs/)
-- 2-page abstract (ACM format): `docs/abstract.pdf` _(added in M5)_
+- 2-page abstract (ACM format): [`docs/abstract.pdf`](docs/abstract.pdf), source [`docs/abstract/abstract.tex`](docs/abstract/abstract.tex)
 
 ---
 
