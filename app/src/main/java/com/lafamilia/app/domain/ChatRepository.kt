@@ -5,8 +5,8 @@ import kotlinx.coroutines.flow.Flow
 /**
  * The contract between the UI and the data layer.
  *
- * Screens only know this interface. Part 1 provides an in-memory implementation;
- * part 4 provides the real one (Room as source of truth + Firestore sync).
+ * Screens only know this interface. The app uses RoomChatRepository (Room as source of
+ * truth + Firestore sync); the unit tests use an in-memory fake (src/test, InMemoryChatRepository).
  */
 interface ChatRepository {
 
