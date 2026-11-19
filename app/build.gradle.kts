@@ -36,6 +36,13 @@ android {
     buildFeatures {
         compose = true
     }
+    bundle {
+        // The app switches language itself (Settings -> Language), so every language must
+        // ship in the install; otherwise Play could leave Arabic out of the downloaded split.
+        language {
+            enableSplit = false
+        }
+    }
 }
 
 dependencies {
