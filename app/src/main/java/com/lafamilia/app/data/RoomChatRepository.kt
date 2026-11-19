@@ -15,8 +15,8 @@ import com.google.firebase.firestore.SetOptions
 import com.lafamilia.app.data.auth.AuthRepository
 import com.lafamilia.app.data.local.AppDatabase
 import com.lafamilia.app.data.local.ConversationEntity
-import com.lafamilia.app.data.local.MessageEntity
 import com.lafamilia.app.data.local.toDomain
+import com.lafamilia.app.data.local.toEntity
 import com.lafamilia.app.data.remote.FirestoreSync
 import com.lafamilia.app.data.remote.MessageSender
 import com.lafamilia.app.data.work.SendMessageWorker
@@ -114,18 +114,17 @@ class RoomChatRepository(
     }
 
     override suspend fun sendMessage(conversationId: String, body: String) {
-        val now = System.currentTimeMillis()
-        val entity = MessageEntity(
+        val message = Message(
             id = UUID.randomUUID().toString(),
             conversationId = conversationId,
             senderId = currentUserId,
             body = body,
-            status = MessageStatus.QUEUED.name,
-            createdAt = now
+            status = MessageStatus.QUEUED,
+            createdAt = System.currentTimeMillis()
         )
-        messageDao.upsert(entity)
-        conversationDao.updateLast(conversationId, body, now)
-        enqueueDelivery(entity.id)
+        messageDao.upsert(message.toEntity())
+        conversationDao.updateLast(conversationId, body, message.createdAt)
+        enqueueDelivery(message.id)
     }
 
     override suspend fun editMessage(message: Message, newBody: String) {
