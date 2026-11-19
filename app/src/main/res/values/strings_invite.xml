@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="invite_title">Invite and feedback</string>
+    <string name="invite_body">Tell your family and friends about La Familia, or send us your thoughts.</string>
+    <string name="invite_button">Invite friends</string>
+    <string name="invite_feedback_button">Send feedback</string>
+    <string name="invite_chooser_title">Invite with</string>
+    <string name="invite_no_app">No app found to do that</string>
+</resources>
