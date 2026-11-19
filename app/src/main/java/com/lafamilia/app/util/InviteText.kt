@@ -4,7 +4,7 @@ package com.lafamilia.app.util
 object InviteText {
 
     /** Change this to the team's real mailbox before the demo. */
-    const val FEEDBACK_EMAIL = "team@example.com"
+    const val FEEDBACK_EMAIL = "abdelrhmansalah108@gmail.com"
 
     const val APP_LINK = "https://github.com/Abdoz3210/MC_Project"
 
