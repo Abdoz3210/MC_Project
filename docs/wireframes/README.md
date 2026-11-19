@@ -34,5 +34,16 @@ Back from Chat thread, Profile and Settings returns to the Chat list (`popBackSt
 | ![New chat](04-new-chat.svg) **4. New chat**: debounced search for people by name | ![Chat thread](05-chat-thread.svg) **5. Chat thread**: bubbles with status, retry on failure, edit and delete own messages | ![Profile](06-profile.svg) **6. Profile**: display name, status, save, sign out |
 | ![Settings](07-settings.svg) **7. Settings**: theme, language (Arabic switches to right-to-left), notifications, reset, invite and feedback Intents | | |
 
+## Dark theme
+
+The same screens with the dark theme (Settings → Theme → Dark, or "Follow system"
+when the phone is in dark mode). Layout is identical; only the colors change.
+
+| | | |
+|---|---|---|
+| ![Login, dark](01-login-dark.svg) **1. Login** | ![Register, dark](02-register-dark.svg) **2. Register** | ![Chat list, dark](03-chat-list-dark.svg) **3. Chat list** |
+| ![New chat, dark](04-new-chat-dark.svg) **4. New chat** | ![Chat thread, dark](05-chat-thread-dark.svg) **5. Chat thread** | ![Profile, dark](06-profile-dark.svg) **6. Profile** |
+| ![Settings, dark](07-settings-dark.svg) **7. Settings** | | |
+
 The SVGs are generated, so they stay easy to update: edit the text or layout and
 open the file in any browser to check it.
