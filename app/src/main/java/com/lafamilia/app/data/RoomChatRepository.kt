@@ -149,6 +149,25 @@ class RoomChatRepository(
 
     override suspend fun markConversationRead(conversationId: String) {
         conversationDao.markRead(conversationId)
+        sendReadReceipts(conversationId)
+    }
+
+    /**
+     * Read receipts (issue #45): writes `readAt` on the other person's messages this phone has
+     * not reported yet, then remembers locally that they are READ so each is reported once.
+     */
+    private suspend fun sendReadReceipts(conversationId: String) {
+        val me = currentUserId
+        if (me.isEmpty()) return
+        val unread = messageDao.unreadIncoming(conversationId, me)
+        if (unread.isEmpty()) return
+        val now = System.currentTimeMillis()
+        val messages = firestore.collection(MessageSender.CONVERSATIONS).document(conversationId)
+            .collection(MessageSender.MESSAGES)
+        val batch = firestore.batch()
+        unread.forEach { batch.update(messages.document(it.id), MessageSender.READ_AT, now) }
+        batch.commit()
+        unread.forEach { messageDao.setStatus(it.id, MessageStatus.READ.name) }
     }
 
     override suspend fun leaveConversation(conversationId: String) {
