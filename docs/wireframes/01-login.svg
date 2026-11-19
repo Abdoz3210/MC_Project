@@ -1,0 +1,24 @@
+<svg xmlns='http://www.w3.org/2000/svg' width='360' height='720' viewBox='0 0 360 720' role='img' aria-label='Login screen wireframe'>
+  <title>Login screen wireframe</title>
+  <rect x='0' y='0' width='360' height='720' rx='0' fill='#EDE7E5'/>
+  <rect x='8' y='8' width='344' height='704' rx='28' fill='#FFF8F6' stroke='#1D1B20' stroke-width='2'/>
+  <rect x='150' y='18' width='60' height='6' rx='3' fill='#CAC4D0'/>
+  <text x='180.0' y='719' font-family='Roboto, Inter, Arial, sans-serif' font-size='10' font-weight='normal' fill='#49454F' text-anchor='middle'>1 · Login</text>
+  <circle cx='180.0' cy='140' r='34' fill='#FFDBD1'/>
+  <text x='180.0' y='147' font-family='Roboto, Inter, Arial, sans-serif' font-size='20' font-weight='bold' fill='#3B0A00' text-anchor='middle'>LF</text>
+  <text x='180.0' y='212' font-family='Roboto, Inter, Arial, sans-serif' font-size='24' font-weight='normal' fill='#1D1B20' text-anchor='middle'>Welcome back</text>
+  <text x='180.0' y='238' font-family='Roboto, Inter, Arial, sans-serif' font-size='14' font-weight='normal' fill='#49454F' text-anchor='middle'>Log in to continue to La Familia</text>
+  <rect x='28' y='280' width='304' height='52' rx='6' fill='#FFF8F6' stroke='#B4492F' stroke-width='2'/>
+  <rect x='38' y='273' width='41.0' height='14' rx='0' fill='#FFF8F6'/>
+  <text x='43' y='284' font-family='Roboto, Inter, Arial, sans-serif' font-size='11' font-weight='normal' fill='#B4492F' text-anchor='start'>Email</text>
+  <text x='44' y='312' font-family='Roboto, Inter, Arial, sans-serif' font-size='15' font-weight='normal' fill='#1D1B20' text-anchor='start'>name@example.com</text>
+  <rect x='28' y='352' width='304' height='52' rx='6' fill='#FFF8F6' stroke='#79747E' stroke-width='1'/>
+  <rect x='38' y='345' width='59.6' height='14' rx='0' fill='#FFF8F6'/>
+  <text x='43' y='356' font-family='Roboto, Inter, Arial, sans-serif' font-size='11' font-weight='normal' fill='#49454F' text-anchor='start'>Password</text>
+  <text x='44' y='384' font-family='Roboto, Inter, Arial, sans-serif' font-size='15' font-weight='normal' fill='#1D1B20' text-anchor='start'>••••••••</text>
+  <text x='316' y='384' font-family='Roboto, Inter, Arial, sans-serif' font-size='13' font-weight='normal' fill='#49454F' text-anchor='end'>Show</text>
+  <text x='32' y='424' font-family='Roboto, Inter, Arial, sans-serif' font-size='12' font-weight='normal' fill='#BA1A1A' text-anchor='start'>Enter your email and password</text>
+  <rect x='28' y='452' width='304' height='44' rx='22' fill='#B4492F'/>
+  <text x='180.0' y='480' font-family='Roboto, Inter, Arial, sans-serif' font-size='14' font-weight='500' fill='#FFFFFF' text-anchor='middle'>Log in</text>
+  <text x='180.0' y='530' font-family='Roboto, Inter, Arial, sans-serif' font-size='14' font-weight='500' fill='#B4492F' text-anchor='middle'>New here? Create an account</text>
+</svg>

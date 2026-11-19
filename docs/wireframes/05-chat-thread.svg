@@ -1,0 +1,29 @@
+<svg xmlns='http://www.w3.org/2000/svg' width='360' height='720' viewBox='0 0 360 720' role='img' aria-label='Chat thread screen wireframe'>
+  <title>Chat thread screen wireframe</title>
+  <rect x='0' y='0' width='360' height='720' rx='0' fill='#EDE7E5'/>
+  <rect x='8' y='8' width='344' height='704' rx='28' fill='#FFF8F6' stroke='#1D1B20' stroke-width='2'/>
+  <rect x='150' y='18' width='60' height='6' rx='3' fill='#CAC4D0'/>
+  <text x='180.0' y='719' font-family='Roboto, Inter, Arial, sans-serif' font-size='10' font-weight='normal' fill='#49454F' text-anchor='middle'>5 · Chat thread</text>
+  <path d='M46,66 L31,66 M37,60 L31,66 L37,72' fill='none' stroke='#1D1B20' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/>
+  <text x='64' y='73' font-family='Roboto, Inter, Arial, sans-serif' font-size='20' font-weight='normal' fill='#1D1B20' text-anchor='start'>Mom</text>
+  <rect x='24' y='112' width='198.79999999999998' height='40' rx='16' fill='#F5DED8'/>
+  <text x='36' y='137' font-family='Roboto, Inter, Arial, sans-serif' font-size='14' font-weight='normal' fill='#49454F' text-anchor='start'>Are you coming tonight?</text>
+  <rect x='213.2' y='164' width='122.8' height='40' rx='16' fill='#FFDBD1'/>
+  <text x='225.2' y='189' font-family='Roboto, Inter, Arial, sans-serif' font-size='14' font-weight='normal' fill='#3B0A00' text-anchor='start'>Yes, around 8</text>
+  <text x='332' y='220' font-family='Roboto, Inter, Arial, sans-serif' font-size='11' font-weight='normal' fill='#49454F' text-anchor='end'>12:31 · Read</text>
+  <rect x='24' y='234' width='206.39999999999998' height='40' rx='16' fill='#F5DED8'/>
+  <text x='36' y='259' font-family='Roboto, Inter, Arial, sans-serif' font-size='14' font-weight='normal' fill='#49454F' text-anchor='start'>Great, see you at dinner</text>
+  <rect x='205.60000000000002' y='286' width='130.39999999999998' height='40' rx='16' fill='#FFDBD1'/>
+  <text x='217.60000000000002' y='311' font-family='Roboto, Inter, Arial, sans-serif' font-size='14' font-weight='normal' fill='#3B0A00' text-anchor='start'>Bring dessert?</text>
+  <text x='332' y='342' font-family='Roboto, Inter, Arial, sans-serif' font-size='11' font-weight='normal' fill='#49454F' text-anchor='end'>12:35 · Delivered</text>
+  <rect x='243.60000000000002' y='356' width='92.39999999999999' height='40' rx='16' fill='#FFDBD1'/>
+  <text x='255.60000000000002' y='381' font-family='Roboto, Inter, Arial, sans-serif' font-size='14' font-weight='normal' fill='#3B0A00' text-anchor='start'>On my way</text>
+  <text x='332' y='412' font-family='Roboto, Inter, Arial, sans-serif' font-size='11' font-weight='normal' fill='#BA1A1A' text-anchor='end'>Failed · tap to retry</text>
+  <text x='24' y='500' font-family='Roboto, Inter, Arial, sans-serif' font-size='11' font-weight='normal' fill='#49454F' text-anchor='start'>long-press your message → Edit / Delete</text>
+  <rect x='9' y='540' width='342' height='126' rx='0' fill='#F9ECE8'/>
+  <text x='28' y='568' font-family='Roboto, Inter, Arial, sans-serif' font-size='12' font-weight='500' fill='#B4492F' text-anchor='start'>Editing message</text>
+  <path d='M318,557 L330,569 M330,557 L318,569' fill='none' stroke='#49454F' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/>
+  <rect x='20' y='586' width='268' height='52' rx='6' fill='#F9ECE8' stroke='#79747E' stroke-width='1'/>
+  <text x='36' y='617' font-family='Roboto, Inter, Arial, sans-serif' font-size='15' font-weight='normal' fill='#49454F' text-anchor='start'>Type a message</text>
+  <path d='M308,604 L325,612 L308,620 L312,612 Z' fill='#B4492F' stroke='#B4492F' stroke-width='1.2' stroke-linecap='round' stroke-linejoin='round'/>
+</svg>

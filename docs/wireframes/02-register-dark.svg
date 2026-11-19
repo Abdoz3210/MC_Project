@@ -1,0 +1,34 @@
+<svg xmlns='http://www.w3.org/2000/svg' width='360' height='720' viewBox='0 0 360 720' role='img' aria-label='Register screen wireframe'>
+  <title>Register screen wireframe</title>
+  <rect x='0' y='0' width='360' height='720' rx='0' fill='#0B0706'/>
+  <rect x='8' y='8' width='344' height='704' rx='28' fill='#1A110F' stroke='#938F99' stroke-width='2'/>
+  <rect x='150' y='18' width='60' height='6' rx='3' fill='#49454F'/>
+  <text x='180.0' y='719' font-family='Roboto, Inter, Arial, sans-serif' font-size='10' font-weight='normal' fill='#CAC4D0' text-anchor='middle'>2 · Register</text>
+  <path d='M46,66 L31,66 M37,60 L31,66 L37,72' fill='none' stroke='#E6E0E9' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/>
+  <text x='64' y='73' font-family='Roboto, Inter, Arial, sans-serif' font-size='20' font-weight='normal' fill='#E6E0E9' text-anchor='start'>Create your account</text>
+  <text x='28' y='118' font-family='Roboto, Inter, Arial, sans-serif' font-size='14' font-weight='normal' fill='#CAC4D0' text-anchor='start'>It only takes a minute</text>
+  <rect x='28' y='148' width='304' height='52' rx='6' fill='#1A110F' stroke='#938F99' stroke-width='1'/>
+  <rect x='38' y='141' width='84.4' height='14' rx='0' fill='#1A110F'/>
+  <text x='43' y='152' font-family='Roboto, Inter, Arial, sans-serif' font-size='11' font-weight='normal' fill='#CAC4D0' text-anchor='start'>Display name</text>
+  <text x='44' y='180' font-family='Roboto, Inter, Arial, sans-serif' font-size='15' font-weight='normal' fill='#E6E0E9' text-anchor='start'>Abdo</text>
+  <rect x='28' y='216' width='304' height='52' rx='6' fill='#1A110F' stroke='#938F99' stroke-width='1'/>
+  <rect x='38' y='209' width='41.0' height='14' rx='0' fill='#1A110F'/>
+  <text x='43' y='220' font-family='Roboto, Inter, Arial, sans-serif' font-size='11' font-weight='normal' fill='#CAC4D0' text-anchor='start'>Email</text>
+  <text x='44' y='248' font-family='Roboto, Inter, Arial, sans-serif' font-size='15' font-weight='normal' fill='#E6E0E9' text-anchor='start'>abdo@example.com</text>
+  <rect x='28' y='284' width='304' height='52' rx='6' fill='#1A110F' stroke='#FFB4A1' stroke-width='2'/>
+  <rect x='38' y='277' width='59.6' height='14' rx='0' fill='#1A110F'/>
+  <text x='43' y='288' font-family='Roboto, Inter, Arial, sans-serif' font-size='11' font-weight='normal' fill='#FFB4A1' text-anchor='start'>Password</text>
+  <text x='44' y='316' font-family='Roboto, Inter, Arial, sans-serif' font-size='15' font-weight='normal' fill='#E6E0E9' text-anchor='start'>••••••••</text>
+  <text x='316' y='316' font-family='Roboto, Inter, Arial, sans-serif' font-size='13' font-weight='normal' fill='#CAC4D0' text-anchor='end'>Hide</text>
+  <rect x='28' y='348' width='304' height='4' rx='2' fill='#53433F'/>
+  <rect x='28' y='348' width='200.64000000000001' height='4' rx='2' fill='#F2BF48'/>
+  <text x='28' y='370' font-family='Roboto, Inter, Arial, sans-serif' font-size='12' font-weight='normal' fill='#F2BF48' text-anchor='start'>Medium</text>
+  <text x='28' y='388' font-family='Roboto, Inter, Arial, sans-serif' font-size='11' font-weight='normal' fill='#CAC4D0' text-anchor='start'>Use at least 6 characters. Mix letters, numbers…</text>
+  <rect x='28' y='412' width='304' height='52' rx='6' fill='#1A110F' stroke='#938F99' stroke-width='1'/>
+  <rect x='38' y='405' width='109.2' height='14' rx='0' fill='#1A110F'/>
+  <text x='43' y='416' font-family='Roboto, Inter, Arial, sans-serif' font-size='11' font-weight='normal' fill='#CAC4D0' text-anchor='start'>Confirm password</text>
+  <text x='44' y='444' font-family='Roboto, Inter, Arial, sans-serif' font-size='15' font-weight='normal' fill='#E6E0E9' text-anchor='start'>••••••••</text>
+  <rect x='28' y='490' width='304' height='44' rx='22' fill='#FFB4A1'/>
+  <text x='180.0' y='518' font-family='Roboto, Inter, Arial, sans-serif' font-size='14' font-weight='500' fill='#601600' text-anchor='middle'>Create account</text>
+  <text x='180.0' y='566' font-family='Roboto, Inter, Arial, sans-serif' font-size='14' font-weight='500' fill='#FFB4A1' text-anchor='middle'>Already have an account? Log in</text>
+</svg>
