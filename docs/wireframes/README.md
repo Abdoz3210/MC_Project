@@ -1,8 +1,12 @@
 # Wireframes
 
-Low-fidelity wireframes of every screen in La Familia, drawn from the labels and
-layout used in the app (`app/src/main/java/com/lafamilia/app/ui/`). They show
-structure and flow, not final colors or spacing.
+Wireframes of every screen in La Familia, drawn from the labels, components and
+layout used in the app (`app/src/main/java/com/lafamilia/app/ui/`).
+
+Colors are the app's own Material 3 theme (`ui/theme/Color.kt`, `ui/theme/Theme.kt`):
+terracotta primary (`#B4492F` light / `#FFB4A1` dark), its container tone for your own
+message bubbles, avatars and the + button, and the warm background (`#FFF8F6` light /
+`#1A110F` dark). Roles the theme does not override use the Material 3 defaults.
 
 ## Navigation graph
 
@@ -37,7 +41,8 @@ Back from Chat thread, Profile and Settings returns to the Chat list (`popBackSt
 ## Dark theme
 
 The same screens with the dark theme (Settings → Theme → Dark, or "Follow system"
-when the phone is in dark mode). Layout is identical; only the colors change.
+when the phone is in dark mode). Layout is identical; the colors switch to the
+dark palette from `Color.kt`.
 
 | | | |
 |---|---|---|

@@ -1,59 +1,50 @@
 <svg xmlns='http://www.w3.org/2000/svg' width='360' height='720' viewBox='0 0 360 720' role='img' aria-label='Chat list screen wireframe'>
   <title>Chat list screen wireframe</title>
-  <defs><marker id='arrow' viewBox='0 0 10 10' refX='9' refY='5' markerWidth='7' markerHeight='7' orient='auto-start-reverse'><path d='M0,0 L10,5 L0,10 z' fill='#1f2933'/></marker></defs>
-  <rect width='100%' height='100%' fill='#f5f7fa'/>
-  <rect x='8' y='8' width='344' height='704' rx='28' fill='#ffffff' stroke='#1f2933' stroke-width='1.5'/>
-  <rect x='140' y='18' width='80' height='8' rx='4' fill='#e4e7eb' stroke='#e4e7eb' stroke-width='1.5'/>
-  <text x='180.0' y='716' font-family='Inter, Roboto, Arial, sans-serif' font-size='11' font-weight='normal' fill='#616e7c' text-anchor='middle'>3 · Chat list</text>
-  <rect x='20' y='40' width='320' height='52' rx='10' fill='#e4e7eb' stroke='#e4e7eb' stroke-width='1.5'/>
-  <text x='36' y='72' font-family='Inter, Roboto, Arial, sans-serif' font-size='17' font-weight='bold' fill='#1f2933' text-anchor='start'>La Familia</text>
-  <circle cx='316' cy='66' r='14' fill='#ffffff' stroke='#9aa5b1' stroke-width='1.5'/>
-  <circle cx='316' cy='66' r='6' fill='none' stroke='#1f2933' stroke-width='1.5'/>
-  <path d='M316.0,59.25 L316,57' fill='none' stroke='#1f2933' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/>
-  <path d='M316.0,72.75 L316,75' fill='none' stroke='#1f2933' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/>
-  <path d='M309.25,66.0 L307,66' fill='none' stroke='#1f2933' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/>
-  <path d='M322.75,66.0 L325,66' fill='none' stroke='#1f2933' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/>
-  <path d='M320.5,70.5 L322,72' fill='none' stroke='#1f2933' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/>
-  <path d='M311.5,61.5 L310,60' fill='none' stroke='#1f2933' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/>
-  <path d='M320.5,61.5 L322,60' fill='none' stroke='#1f2933' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/>
-  <path d='M311.5,70.5 L310,72' fill='none' stroke='#1f2933' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/>
-  <circle cx='282' cy='66' r='14' fill='#ffffff' stroke='#9aa5b1' stroke-width='1.5'/>
-  <circle cx='282' cy='62' r='4' fill='none' stroke='#1f2933' stroke-width='1.5'/>
-  <path d='M275,74 Q282,65 289,74' fill='none' stroke='#1f2933' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/>
-  <rect x='32' y='108' width='296' height='40' rx='20' fill='#ffffff' stroke='#9aa5b1' stroke-width='1.5'/>
-  <circle cx='52' cy='126' r='6' fill='none' stroke='#7b8794' stroke-width='1.5'/>
-  <path d='M56.5,130.5 L61,135' fill='none' stroke='#7b8794' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/>
-  <text x='70' y='133' font-family='Inter, Roboto, Arial, sans-serif' font-size='13' font-weight='normal' fill='#7b8794' text-anchor='start'>Search conversations</text>
-  <circle cx='56' cy='198' r='22' fill='#e4e7eb' stroke='#9aa5b1' stroke-width='1.5'/>
-  <text x='56' y='203' font-family='Inter, Roboto, Arial, sans-serif' font-size='14' font-weight='bold' fill='#1f2933' text-anchor='middle'>M</text>
-  <text x='90' y='192' font-family='Inter, Roboto, Arial, sans-serif' font-size='15' font-weight='bold' fill='#1f2933' text-anchor='start'>Mom</text>
-  <text x='90' y='214' font-family='Inter, Roboto, Arial, sans-serif' font-size='13' font-weight='normal' fill='#52606d' text-anchor='start'>See you at dinner</text>
-  <text x='320' y='192' font-family='Inter, Roboto, Arial, sans-serif' font-size='11' font-weight='normal' fill='#7b8794' text-anchor='end'>12:40</text>
-  <circle cx='308' cy='210' r='11' fill='#5b6cff' stroke='#5b6cff' stroke-width='1.5'/>
-  <text x='308' y='214' font-family='Inter, Roboto, Arial, sans-serif' font-size='11' font-weight='bold' fill='#ffffff' text-anchor='middle'>2</text>
-  <line x1='90' y1='238' x2='328' y2='238' stroke='#e4e7eb' stroke-width='1.5'/>
-  <circle cx='56' cy='274' r='22' fill='#e4e7eb' stroke='#9aa5b1' stroke-width='1.5'/>
-  <text x='56' y='279' font-family='Inter, Roboto, Arial, sans-serif' font-size='14' font-weight='bold' fill='#1f2933' text-anchor='middle'>D</text>
-  <text x='90' y='268' font-family='Inter, Roboto, Arial, sans-serif' font-size='15' font-weight='bold' fill='#1f2933' text-anchor='start'>Dad</text>
-  <text x='90' y='290' font-family='Inter, Roboto, Arial, sans-serif' font-size='13' font-weight='normal' fill='#52606d' text-anchor='start'>Call me when you can</text>
-  <text x='320' y='268' font-family='Inter, Roboto, Arial, sans-serif' font-size='11' font-weight='normal' fill='#7b8794' text-anchor='end'>11:02</text>
-  <line x1='90' y1='314' x2='328' y2='314' stroke='#e4e7eb' stroke-width='1.5'/>
-  <circle cx='56' cy='350' r='22' fill='#e4e7eb' stroke='#9aa5b1' stroke-width='1.5'/>
-  <text x='56' y='355' font-family='Inter, Roboto, Arial, sans-serif' font-size='14' font-weight='bold' fill='#1f2933' text-anchor='middle'>S</text>
-  <text x='90' y='344' font-family='Inter, Roboto, Arial, sans-serif' font-size='15' font-weight='bold' fill='#1f2933' text-anchor='start'>Sara</text>
-  <text x='90' y='366' font-family='Inter, Roboto, Arial, sans-serif' font-size='13' font-weight='normal' fill='#52606d' text-anchor='start'>No messages yet</text>
-  <text x='320' y='344' font-family='Inter, Roboto, Arial, sans-serif' font-size='11' font-weight='normal' fill='#7b8794' text-anchor='end'></text>
-  <line x1='90' y1='390' x2='328' y2='390' stroke='#e4e7eb' stroke-width='1.5'/>
-  <circle cx='56' cy='426' r='22' fill='#e4e7eb' stroke='#9aa5b1' stroke-width='1.5'/>
-  <text x='56' y='431' font-family='Inter, Roboto, Arial, sans-serif' font-size='14' font-weight='bold' fill='#1f2933' text-anchor='middle'>F</text>
-  <text x='90' y='420' font-family='Inter, Roboto, Arial, sans-serif' font-size='15' font-weight='bold' fill='#1f2933' text-anchor='start'>Family group</text>
-  <text x='90' y='442' font-family='Inter, Roboto, Arial, sans-serif' font-size='13' font-weight='normal' fill='#52606d' text-anchor='start'>Photos tomorrow?</text>
-  <text x='320' y='420' font-family='Inter, Roboto, Arial, sans-serif' font-size='11' font-weight='normal' fill='#7b8794' text-anchor='end'>Mon</text>
-  <circle cx='308' cy='438' r='11' fill='#5b6cff' stroke='#5b6cff' stroke-width='1.5'/>
-  <text x='308' y='442' font-family='Inter, Roboto, Arial, sans-serif' font-size='11' font-weight='bold' fill='#ffffff' text-anchor='middle'>5</text>
-  <line x1='90' y1='466' x2='328' y2='466' stroke='#e4e7eb' stroke-width='1.5'/>
-  <text x='36' y='500' font-family='Inter, Roboto, Arial, sans-serif' font-size='11' font-weight='normal' fill='#7b8794' text-anchor='start'>long-press a chat → Remove this chat?</text>
-  <circle cx='300' cy='630' r='28' fill='#5b6cff' stroke='#5b6cff' stroke-width='1.5'/>
-  <text x='300' y='638' font-family='Inter, Roboto, Arial, sans-serif' font-size='26' font-weight='normal' fill='#ffffff' text-anchor='middle'>+</text>
-  <text x='300' y='674' font-family='Inter, Roboto, Arial, sans-serif' font-size='11' font-weight='normal' fill='#52606d' text-anchor='middle'>New chat</text>
+  <rect x='0' y='0' width='360' height='720' rx='0' fill='#EDE7E5'/>
+  <rect x='8' y='8' width='344' height='704' rx='28' fill='#FFF8F6' stroke='#1D1B20' stroke-width='2'/>
+  <rect x='150' y='18' width='60' height='6' rx='3' fill='#CAC4D0'/>
+  <text x='180.0' y='719' font-family='Roboto, Inter, Arial, sans-serif' font-size='10' font-weight='normal' fill='#49454F' text-anchor='middle'>3 · Chat list</text>
+  <text x='28' y='73' font-family='Roboto, Inter, Arial, sans-serif' font-size='20' font-weight='normal' fill='#1D1B20' text-anchor='start'>La Familia</text>
+  <circle cx='318' cy='66' r='5.5' fill='none' stroke='#49454F' stroke-width='1.8'/>
+  <path d='M318.0,59.52 L318,57' fill='none' stroke='#49454F' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/>
+  <path d='M318.0,72.48 L318,75' fill='none' stroke='#49454F' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/>
+  <path d='M311.52,66.0 L309,66' fill='none' stroke='#49454F' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/>
+  <path d='M324.48,66.0 L327,66' fill='none' stroke='#49454F' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/>
+  <path d='M322.608,70.608 L324.4,72.4' fill='none' stroke='#49454F' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/>
+  <path d='M313.392,61.392 L311.6,59.6' fill='none' stroke='#49454F' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/>
+  <path d='M322.608,61.392 L324.4,59.6' fill='none' stroke='#49454F' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/>
+  <path d='M313.392,70.608 L311.6,72.4' fill='none' stroke='#49454F' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/>
+  <circle cx='278' cy='62' r='4' fill='none' stroke='#49454F' stroke-width='1.5'/>
+  <path d='M271,74 Q278,65 285,74' fill='none' stroke='#49454F' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/>
+  <rect x='28' y='100' width='304' height='50' rx='6' fill='#FFF8F6' stroke='#79747E' stroke-width='1'/>
+  <circle cx='48' cy='123' r='6' fill='none' stroke='#49454F' stroke-width='1.8'/>
+  <path d='M52.5,127.5 L57,132' fill='none' stroke='#49454F' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/>
+  <text x='66' y='130' font-family='Roboto, Inter, Arial, sans-serif' font-size='14' font-weight='normal' fill='#49454F' text-anchor='start'>Search conversations</text>
+  <circle cx='52' cy='196' r='22' fill='#FFDBD1'/>
+  <text x='52' y='202' font-family='Roboto, Inter, Arial, sans-serif' font-size='16' font-weight='bold' fill='#3B0A00' text-anchor='middle'>M</text>
+  <text x='86' y='190' font-family='Roboto, Inter, Arial, sans-serif' font-size='16' font-weight='bold' fill='#1D1B20' text-anchor='start'>Mom</text>
+  <text x='86' y='212' font-family='Roboto, Inter, Arial, sans-serif' font-size='14' font-weight='normal' fill='#49454F' text-anchor='start'>See you at dinner</text>
+  <text x='330' y='190' font-family='Roboto, Inter, Arial, sans-serif' font-size='12' font-weight='normal' fill='#49454F' text-anchor='end'>12:40</text>
+  <circle cx='318' cy='208' r='11' fill='#B4492F'/>
+  <text x='318' y='212' font-family='Roboto, Inter, Arial, sans-serif' font-size='11' font-weight='bold' fill='#FFFFFF' text-anchor='middle'>2</text>
+  <circle cx='52' cy='270' r='22' fill='#FFDBD1'/>
+  <text x='52' y='276' font-family='Roboto, Inter, Arial, sans-serif' font-size='16' font-weight='bold' fill='#3B0A00' text-anchor='middle'>D</text>
+  <text x='86' y='264' font-family='Roboto, Inter, Arial, sans-serif' font-size='16' font-weight='normal' fill='#1D1B20' text-anchor='start'>Dad</text>
+  <text x='86' y='286' font-family='Roboto, Inter, Arial, sans-serif' font-size='14' font-weight='normal' fill='#49454F' text-anchor='start'>Call me when you can</text>
+  <text x='330' y='264' font-family='Roboto, Inter, Arial, sans-serif' font-size='12' font-weight='normal' fill='#49454F' text-anchor='end'>11:02</text>
+  <circle cx='52' cy='344' r='22' fill='#FFDBD1'/>
+  <text x='52' y='350' font-family='Roboto, Inter, Arial, sans-serif' font-size='16' font-weight='bold' fill='#3B0A00' text-anchor='middle'>S</text>
+  <text x='86' y='338' font-family='Roboto, Inter, Arial, sans-serif' font-size='16' font-weight='normal' fill='#1D1B20' text-anchor='start'>Sara</text>
+  <text x='86' y='360' font-family='Roboto, Inter, Arial, sans-serif' font-size='14' font-weight='normal' fill='#49454F' text-anchor='start'>No messages yet</text>
+  <text x='330' y='338' font-family='Roboto, Inter, Arial, sans-serif' font-size='12' font-weight='normal' fill='#49454F' text-anchor='end'></text>
+  <circle cx='52' cy='418' r='22' fill='#FFDBD1'/>
+  <text x='52' y='424' font-family='Roboto, Inter, Arial, sans-serif' font-size='16' font-weight='bold' fill='#3B0A00' text-anchor='middle'>F</text>
+  <text x='86' y='412' font-family='Roboto, Inter, Arial, sans-serif' font-size='16' font-weight='bold' fill='#1D1B20' text-anchor='start'>Family group</text>
+  <text x='86' y='434' font-family='Roboto, Inter, Arial, sans-serif' font-size='14' font-weight='normal' fill='#49454F' text-anchor='start'>Photos tomorrow?</text>
+  <text x='330' y='412' font-family='Roboto, Inter, Arial, sans-serif' font-size='12' font-weight='normal' fill='#49454F' text-anchor='end'>Mon</text>
+  <circle cx='318' cy='430' r='11' fill='#B4492F'/>
+  <text x='318' y='434' font-family='Roboto, Inter, Arial, sans-serif' font-size='11' font-weight='bold' fill='#FFFFFF' text-anchor='middle'>5</text>
+  <text x='28' y='488' font-family='Roboto, Inter, Arial, sans-serif' font-size='11' font-weight='normal' fill='#49454F' text-anchor='start'>long-press a chat → “Remove this chat?”</text>
+  <rect x='268' y='608' width='56' height='56' rx='16' fill='#FFDBD1'/>
+  <path d='M296,628 L296,644 M288,636 L304,636' fill='none' stroke='#3B0A00' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/>
 </svg>
