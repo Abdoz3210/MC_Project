@@ -7,8 +7,7 @@ data class User(
     val id: String,
     val name: String,
     val username: String = "",
-    val status: String = "",
-    val avatarUrl: String? = null
+    val status: String = ""
 )
 
 data class Conversation(
@@ -16,7 +15,11 @@ data class Conversation(
     val title: String,
     val lastMessageText: String,
     val lastMessageAt: Long,
-    val unreadCount: Int
+    val unreadCount: Int,
+    /** Per-user choices (issue #42): each member pins, mutes or archives a chat for themselves only. */
+    val isPinned: Boolean = false,
+    val isMuted: Boolean = false,
+    val isArchived: Boolean = false
 )
 
 data class Message(

@@ -85,6 +85,38 @@ class ChatListViewModel(
         _uiState.update { it.copy(openChatId = null) }
     }
 
+    // ---- long-press menu: pin, mute, archive (issue #42) ------------------------------
+
+    fun openMenu(conversation: Conversation) {
+        _uiState.update { it.copy(menuFor = conversation) }
+    }
+
+    fun closeMenu() {
+        _uiState.update { it.copy(menuFor = null) }
+    }
+
+    fun togglePin() = withMenuTarget { repository.setPinned(it.id, !it.isPinned) }
+
+    fun toggleMute() = withMenuTarget { repository.setMuted(it.id, !it.isMuted) }
+
+    fun toggleArchive() = withMenuTarget { repository.setArchived(it.id, !it.isArchived) }
+
+    /** "Remove" in the menu opens the existing confirmation dialog. */
+    fun removeFromMenu() {
+        val target = _uiState.value.menuFor ?: return
+        _uiState.update { it.copy(menuFor = null, pendingDelete = target) }
+    }
+
+    fun showArchived(show: Boolean) {
+        _uiState.update { it.copy(showArchived = show, query = "") }
+    }
+
+    private fun withMenuTarget(action: suspend (Conversation) -> Unit) {
+        val target = _uiState.value.menuFor ?: return
+        _uiState.update { it.copy(menuFor = null) }
+        viewModelScope.launch { action(target) }
+    }
+
     // ---- remove a conversation -------------------------------------------------------
 
     fun askDelete(conversation: Conversation) {
