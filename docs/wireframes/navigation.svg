@@ -1,0 +1,48 @@
+<svg xmlns='http://www.w3.org/2000/svg' width='900' height='520' viewBox='0 0 900 520' role='img' aria-label='Navigation graph'>
+  <title>Navigation graph</title>
+  <defs><marker id='arrow' viewBox='0 0 10 10' refX='9' refY='5' markerWidth='7' markerHeight='7' orient='auto-start-reverse'><path d='M0,0 L10,5 L0,10 z' fill='#1f2933'/></marker></defs>
+  <rect width='100%' height='100%' fill='#f5f7fa'/>
+  <text x='450' y='40' font-family='Inter, Roboto, Arial, sans-serif' font-size='20' font-weight='bold' fill='#1f2933' text-anchor='middle'>La Familia · navigation graph (AppNavHost)</text>
+  <rect x='370' y='65' width='160' height='60' rx='14' fill='#ffffff' stroke='#5b6cff' stroke-width='1.5' stroke-dasharray='5 4'/>
+  <text x='450' y='92' font-family='Inter, Roboto, Arial, sans-serif' font-size='15' font-weight='bold' fill='#1f2933' text-anchor='middle'>App start</text>
+  <text x='450' y='112' font-family='Inter, Roboto, Arial, sans-serif' font-size='11' font-weight='normal' fill='#52606d' text-anchor='middle'>signed in?</text>
+  <rect x='120' y='180' width='160' height='60' rx='14' fill='#eef0ff' stroke='#5b6cff' stroke-width='1.5'/>
+  <text x='200' y='207' font-family='Inter, Roboto, Arial, sans-serif' font-size='15' font-weight='bold' fill='#1f2933' text-anchor='middle'>Login</text>
+  <text x='200' y='227' font-family='Inter, Roboto, Arial, sans-serif' font-size='11' font-weight='normal' fill='#52606d' text-anchor='middle'>login</text>
+  <rect x='120' y='350' width='160' height='60' rx='14' fill='#eef0ff' stroke='#5b6cff' stroke-width='1.5'/>
+  <text x='200' y='377' font-family='Inter, Roboto, Arial, sans-serif' font-size='15' font-weight='bold' fill='#1f2933' text-anchor='middle'>Register</text>
+  <text x='200' y='397' font-family='Inter, Roboto, Arial, sans-serif' font-size='11' font-weight='normal' fill='#52606d' text-anchor='middle'>register</text>
+  <rect x='550' y='180' width='160' height='60' rx='14' fill='#eef0ff' stroke='#5b6cff' stroke-width='1.5'/>
+  <text x='630' y='207' font-family='Inter, Roboto, Arial, sans-serif' font-size='15' font-weight='bold' fill='#1f2933' text-anchor='middle'>Chat list</text>
+  <text x='630' y='227' font-family='Inter, Roboto, Arial, sans-serif' font-size='11' font-weight='normal' fill='#52606d' text-anchor='middle'>chatlist</text>
+  <rect x='370' y='370' width='160' height='60' rx='14' fill='#eef0ff' stroke='#5b6cff' stroke-width='1.5'/>
+  <text x='450' y='397' font-family='Inter, Roboto, Arial, sans-serif' font-size='15' font-weight='bold' fill='#1f2933' text-anchor='middle'>Chat thread</text>
+  <text x='450' y='417' font-family='Inter, Roboto, Arial, sans-serif' font-size='11' font-weight='normal' fill='#52606d' text-anchor='middle'>chat/{conversationId}</text>
+  <rect x='730' y='300' width='160' height='60' rx='14' fill='#eef0ff' stroke='#5b6cff' stroke-width='1.5'/>
+  <text x='810' y='327' font-family='Inter, Roboto, Arial, sans-serif' font-size='15' font-weight='bold' fill='#1f2933' text-anchor='middle'>Profile</text>
+  <text x='810' y='347' font-family='Inter, Roboto, Arial, sans-serif' font-size='11' font-weight='normal' fill='#52606d' text-anchor='middle'>profile</text>
+  <rect x='730' y='420' width='160' height='60' rx='14' fill='#eef0ff' stroke='#5b6cff' stroke-width='1.5'/>
+  <text x='810' y='447' font-family='Inter, Roboto, Arial, sans-serif' font-size='15' font-weight='bold' fill='#1f2933' text-anchor='middle'>Settings</text>
+  <text x='810' y='467' font-family='Inter, Roboto, Arial, sans-serif' font-size='11' font-weight='normal' fill='#52606d' text-anchor='middle'>settings</text>
+  <line x1='384.7826086956522' y1='125.0' x2='265.2173913043478' y2='180.0' stroke='#1f2933' stroke-width='1.5' marker-end='url(#arrow)'/>
+  <text x='295.0' y='146.5' font-family='Inter, Roboto, Arial, sans-serif' font-size='11' font-weight='normal' fill='#1f2933' text-anchor='middle'>not signed in</text>
+  <line x1='496.95652173913044' y1='125.0' x2='583.0434782608696' y2='180.0' stroke='#1f2933' stroke-width='1.5' marker-end='url(#arrow)'/>
+  <text x='570.0' y='146.5' font-family='Inter, Roboto, Arial, sans-serif' font-size='11' font-weight='normal' fill='#1f2933' text-anchor='middle'>signed in</text>
+  <line x1='186.0' y1='240.0' x2='186.0' y2='350.0' stroke='#1f2933' stroke-width='1.5' marker-end='url(#arrow)'/>
+  <text x='138.0' y='289.0' font-family='Inter, Roboto, Arial, sans-serif' font-size='11' font-weight='normal' fill='#1f2933' text-anchor='middle'>Create account</text>
+  <line x1='214.0' y1='350.0' x2='214.0' y2='240.0' stroke='#1f2933' stroke-width='1.5' marker-end='url(#arrow)'/>
+  <text x='236.0' y='289.0' font-family='Inter, Roboto, Arial, sans-serif' font-size='11' font-weight='normal' fill='#1f2933' text-anchor='middle'>back</text>
+  <line x1='280.0' y1='202.0' x2='550.0' y2='202.0' stroke='#1f2933' stroke-width='1.5' marker-end='url(#arrow)'/>
+  <text x='415.0' y='192.0' font-family='Inter, Roboto, Arial, sans-serif' font-size='11' font-weight='normal' fill='#1f2933' text-anchor='middle'>login ok (clears back stack)</text>
+  <line x1='275.88235294117646' y1='350.0' x2='554.1176470588235' y2='240.0' stroke='#1f2933' stroke-width='1.5' marker-end='url(#arrow)'/>
+  <text x='445.0' y='315.0' font-family='Inter, Roboto, Arial, sans-serif' font-size='11' font-weight='normal' fill='#1f2933' text-anchor='middle'>registered</text>
+  <line x1='601.578947368421' y1='240.0' x2='478.42105263157896' y2='370.0' stroke='#1f2933' stroke-width='1.5' marker-end='url(#arrow)'/>
+  <text x='506.0' y='299.0' font-family='Inter, Roboto, Arial, sans-serif' font-size='11' font-weight='normal' fill='#1f2933' text-anchor='middle'>open chat</text>
+  <line x1='675.0' y1='240.0' x2='765.0' y2='300.0' stroke='#1f2933' stroke-width='1.5' marker-end='url(#arrow)'/>
+  <text x='754.0' y='258.0' font-family='Inter, Roboto, Arial, sans-serif' font-size='11' font-weight='normal' fill='#1f2933' text-anchor='middle'>profile icon</text>
+  <line x1='652.5' y1='240.0' x2='787.5' y2='420.0' stroke='#1f2933' stroke-width='1.5' marker-end='url(#arrow)'/>
+  <text x='674.0' y='394.0' font-family='Inter, Roboto, Arial, sans-serif' font-size='11' font-weight='normal' fill='#1f2933' text-anchor='middle'>settings icon</text>
+  <line x1='730.0' y1='314.26229508196724' x2='280.0' y2='225.7377049180328' stroke='#d64545' stroke-width='1.5' marker-end='url(#arrow)'/>
+  <text x='505.0' y='248.0' font-family='Inter, Roboto, Arial, sans-serif' font-size='11' font-weight='normal' fill='#d64545' text-anchor='middle'>sign out (clears back stack)</text>
+  <text x='450' y='505' font-family='Inter, Roboto, Arial, sans-serif' font-size='12' font-weight='normal' fill='#52606d' text-anchor='middle'>Back from Chat thread, Profile and Settings returns to Chat list (popBackStack).</text>
+</svg>
