@@ -1,6 +1,7 @@
 package com.lafamilia.app.data
 
 import android.content.SharedPreferences
+import androidx.core.content.edit
 import androidx.work.BackoffPolicy
 import androidx.work.Constraints
 import androidx.work.Data
@@ -14,8 +15,8 @@ import com.google.firebase.firestore.SetOptions
 import com.lafamilia.app.data.auth.AuthRepository
 import com.lafamilia.app.data.local.AppDatabase
 import com.lafamilia.app.data.local.ConversationEntity
-import com.lafamilia.app.data.local.MessageEntity
 import com.lafamilia.app.data.local.toDomain
+import com.lafamilia.app.data.local.toEntity
 import com.lafamilia.app.data.remote.FirestoreSync
 import com.lafamilia.app.data.remote.MessageSender
 import com.lafamilia.app.data.work.SendMessageWorker
@@ -113,18 +114,17 @@ class RoomChatRepository(
     }
 
     override suspend fun sendMessage(conversationId: String, body: String) {
-        val now = System.currentTimeMillis()
-        val entity = MessageEntity(
+        val message = Message(
             id = UUID.randomUUID().toString(),
             conversationId = conversationId,
             senderId = currentUserId,
             body = body,
-            status = MessageStatus.QUEUED.name,
-            createdAt = now
+            status = MessageStatus.QUEUED,
+            createdAt = System.currentTimeMillis()
         )
-        messageDao.upsert(entity)
-        conversationDao.updateLast(conversationId, body, now)
-        enqueueDelivery(entity.id)
+        messageDao.upsert(message.toEntity())
+        conversationDao.updateLast(conversationId, body, message.createdAt)
+        enqueueDelivery(message.id)
     }
 
     override suspend fun editMessage(message: Message, newBody: String) {
@@ -149,6 +149,25 @@ class RoomChatRepository(
 
     override suspend fun markConversationRead(conversationId: String) {
         conversationDao.markRead(conversationId)
+        sendReadReceipts(conversationId)
+    }
+
+    /**
+     * Read receipts (issue #45): writes `readAt` on the other person's messages this phone has
+     * not reported yet, then remembers locally that they are READ so each is reported once.
+     */
+    private suspend fun sendReadReceipts(conversationId: String) {
+        val me = currentUserId
+        if (me.isEmpty()) return
+        val unread = messageDao.unreadIncoming(conversationId, me)
+        if (unread.isEmpty()) return
+        val now = System.currentTimeMillis()
+        val messages = firestore.collection(MessageSender.CONVERSATIONS).document(conversationId)
+            .collection(MessageSender.MESSAGES)
+        val batch = firestore.batch()
+        unread.forEach { batch.update(messages.document(it.id), MessageSender.READ_AT, now) }
+        batch.commit()
+        unread.forEach { messageDao.setStatus(it.id, MessageStatus.READ.name) }
     }
 
     override suspend fun leaveConversation(conversationId: String) {
@@ -156,6 +175,31 @@ class RoomChatRepository(
         conversationDao.delete(conversationId)
         firestore.collection(MessageSender.CONVERSATIONS).document(conversationId)
             .update("members", FieldValue.arrayRemove(currentUserId))
+    }
+
+    override suspend fun setPinned(conversationId: String, pinned: Boolean) {
+        conversationDao.setPinned(conversationId, pinned)
+        saveChoice(conversationId, FirestoreSync.PINNED_BY, pinned)
+    }
+
+    override suspend fun setMuted(conversationId: String, muted: Boolean) {
+        conversationDao.setMuted(conversationId, muted)
+        saveChoice(conversationId, FirestoreSync.MUTED_BY, muted)
+    }
+
+    override suspend fun setArchived(conversationId: String, archived: Boolean) {
+        conversationDao.setArchived(conversationId, archived)
+        saveChoice(conversationId, FirestoreSync.ARCHIVED_BY, archived)
+    }
+
+    /**
+     * Room is updated first so the list changes at once; Firestore keeps the choice per user
+     * (the user's id is added to or removed from a list on the conversation), so it survives a
+     * reinstall and follows the user to another phone. Firestore queues the write while offline.
+     */
+    private fun saveChoice(conversationId: String, field: String, enabled: Boolean) {
+        val change = if (enabled) FieldValue.arrayUnion(currentUserId) else FieldValue.arrayRemove(currentUserId)
+        firestore.collection(MessageSender.CONVERSATIONS).document(conversationId).update(field, change)
     }
 
     private fun enqueueDelivery(messageId: String) {
@@ -181,7 +225,7 @@ class RoomChatRepository(
             val previousOwner = prefs.getString(KEY_OWNER, null)
             if (previousOwner != uid) {
                 withContext(Dispatchers.IO) { database.clearAllTables() }
-                prefs.edit().putString(KEY_OWNER, uid).apply()
+                prefs.edit { putString(KEY_OWNER, uid) }
             }
             if (uid.isNotEmpty()) sync.start(uid)
         }

@@ -1,5 +1,6 @@
 package com.lafamilia.app.ui.chatlist
 
+import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -8,6 +9,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.Person
 import androidx.compose.material.icons.filled.Search
@@ -51,10 +53,22 @@ fun ChatListScreen(
         }
     }
 
+    // In the Archived section, the system back button returns to the main list.
+    BackHandler(enabled = state.showArchived) { viewModel.showArchived(false) }
+
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text(stringResource(R.string.app_name)) },
+                title = {
+                    Text(stringResource(if (state.showArchived) R.string.chatlist_archived else R.string.app_name))
+                },
+                navigationIcon = {
+                    if (state.showArchived) {
+                        IconButton(onClick = { viewModel.showArchived(false) }) {
+                            Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = stringResource(R.string.chatlist_back))
+                        }
+                    }
+                },
                 actions = {
                     IconButton(onClick = onOpenProfile) {
                         Icon(Icons.Default.Person, contentDescription = stringResource(R.string.chatlist_profile))
@@ -86,13 +100,28 @@ fun ChatListScreen(
                 state.isLoading -> Box(Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
                     CircularProgressIndicator()
                 }
-                visible.isEmpty() -> EmptyState(hasQuery = state.query.isNotBlank())
+                visible.isEmpty() && (state.showArchived || state.archivedCount == 0) ->
+                    EmptyState(hasQuery = state.query.isNotBlank())
                 else -> LazyColumn(modifier = Modifier.fillMaxSize()) {
+                    if (!state.showArchived && state.archivedCount > 0) {
+                        item(key = "archived-entry") {
+                            ArchivedEntry(count = state.archivedCount, onClick = { viewModel.showArchived(true) })
+                            HorizontalDivider()
+                        }
+                    }
                     items(visible, key = { it.id }) { conversation ->
                         ConversationRow(
                             conversation = conversation,
                             onClick = { onOpenChat(conversation.id) },
-                            onLongClick = { viewModel.askDelete(conversation) }
+                            onLongClick = { viewModel.openMenu(conversation) },
+                            menuOpen = state.menuFor?.id == conversation.id,
+                            menu = ConversationMenuActions(
+                                onPin = viewModel::togglePin,
+                                onMute = viewModel::toggleMute,
+                                onArchive = viewModel::toggleArchive,
+                                onRemove = viewModel::removeFromMenu,
+                                onDismiss = viewModel::closeMenu
+                            )
                         )
                         HorizontalDivider()
                     }

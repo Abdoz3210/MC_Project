@@ -5,8 +5,8 @@ import kotlinx.coroutines.flow.Flow
 /**
  * The contract between the UI and the data layer.
  *
- * Screens only know this interface. Part 1 provides an in-memory implementation;
- * part 4 provides the real one (Room as source of truth + Firestore sync).
+ * Screens only know this interface. The app uses RoomChatRepository (Room as source of
+ * truth + Firestore sync); the unit tests use an in-memory fake (src/test, InMemoryChatRepository).
  */
 interface ChatRepository {
 
@@ -44,4 +44,13 @@ interface ChatRepository {
 
     /** Removes the conversation from the current user's list. */
     suspend fun leaveConversation(conversationId: String)
+
+    /** Pinned chats stay at the top of the list. Only affects the current user. */
+    suspend fun setPinned(conversationId: String, pinned: Boolean)
+
+    /** Muted chats still receive messages but do not highlight their unread badge. */
+    suspend fun setMuted(conversationId: String, muted: Boolean)
+
+    /** Archived chats move out of the main list into the "Archived" section. */
+    suspend fun setArchived(conversationId: String, archived: Boolean)
 }

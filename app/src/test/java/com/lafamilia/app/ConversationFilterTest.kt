@@ -30,4 +30,33 @@ class ConversationFilterTest {
     fun noMatchGivesEmptyList() {
         assertEquals(emptyList<Conversation>(), ConversationFilter.filter(all, "zzz"))
     }
+
+    // ---- arrange: pin, archive (issue #42) ----
+
+    private val sara = Conversation("3", "Sara", "Hi", 20L, 0)
+
+    @Test
+    fun newestFirstWhenNothingIsPinned() {
+        assertEquals(listOf(sara, mom, dad), ConversationFilter.arrange(listOf(dad, mom, sara), "", archived = false))
+    }
+
+    @Test
+    fun pinnedChatsComeFirstEvenWhenOlder() {
+        val pinnedDad = dad.copy(isPinned = true)
+        assertEquals(listOf(pinnedDad, sara, mom), ConversationFilter.arrange(listOf(mom, pinnedDad, sara), "", archived = false))
+    }
+
+    @Test
+    fun archivedChatsOnlyAppearInTheArchivedSection() {
+        val archivedMom = mom.copy(isArchived = true)
+        val list = listOf(archivedMom, dad, sara)
+        assertEquals(listOf(sara, dad), ConversationFilter.arrange(list, "", archived = false))
+        assertEquals(listOf(archivedMom), ConversationFilter.arrange(list, "", archived = true))
+    }
+
+    @Test
+    fun searchStillWorksInsideTheArchivedSection() {
+        val list = listOf(mom.copy(isArchived = true), dad.copy(isArchived = true))
+        assertEquals(listOf("Dad"), ConversationFilter.arrange(list, "call", archived = true).map { it.title })
+    }
 }
