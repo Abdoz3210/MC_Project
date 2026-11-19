@@ -4,6 +4,8 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.SetOptions
 import com.lafamilia.app.data.local.AppDatabase
 import com.lafamilia.app.domain.MessageStatus
+import com.lafamilia.app.domain.MessageStatusRules
+import com.lafamilia.app.data.local.parseStatus
 import com.lafamilia.app.util.await
 import kotlinx.coroutines.withTimeout
 
@@ -21,7 +23,7 @@ class MessageSender(
     suspend fun send(messageId: String): SendResult {
         val messageDao = database.messageDao()
         val message = messageDao.get(messageId) ?: return SendResult.DONE // deleted meanwhile
-        if (message.status == MessageStatus.SENT.name) return SendResult.DONE
+        if (MessageStatusRules.isOnServer(parseStatus(message.status))) return SendResult.DONE
 
         messageDao.setStatus(messageId, MessageStatus.SENDING.name)
         return try {
@@ -39,7 +41,7 @@ class MessageSender(
                 SetOptions.merge()
             )
             withTimeout(TIMEOUT_MS) { batch.commit().await() }
-            messageDao.setStatus(messageId, MessageStatus.SENT.name)
+            messageDao.markSentIfPending(messageId)
             SendResult.DONE
         } catch (e: Exception) {
             messageDao.setStatus(messageId, MessageStatus.QUEUED.name)
@@ -54,6 +56,9 @@ class MessageSender(
     companion object {
         const val CONVERSATIONS = "conversations"
         const val MESSAGES = "messages"
+        /** Receipts written by the receiver's phone (issue #45). */
+        const val DELIVERED_AT = "deliveredAt"
+        const val READ_AT = "readAt"
         private const val TIMEOUT_MS = 15_000L
     }
 }
