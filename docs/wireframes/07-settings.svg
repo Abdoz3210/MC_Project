@@ -1,0 +1,38 @@
+<svg xmlns='http://www.w3.org/2000/svg' width='360' height='720' viewBox='0 0 360 720' role='img' aria-label='Settings screen wireframe'>
+  <title>Settings screen wireframe</title>
+  <defs><marker id='arrow' viewBox='0 0 10 10' refX='9' refY='5' markerWidth='7' markerHeight='7' orient='auto-start-reverse'><path d='M0,0 L10,5 L0,10 z' fill='#1f2933'/></marker></defs>
+  <rect width='100%' height='100%' fill='#f5f7fa'/>
+  <rect x='8' y='8' width='344' height='704' rx='28' fill='#ffffff' stroke='#1f2933' stroke-width='1.5'/>
+  <rect x='140' y='18' width='80' height='8' rx='4' fill='#e4e7eb' stroke='#e4e7eb' stroke-width='1.5'/>
+  <text x='180.0' y='716' font-family='Inter, Roboto, Arial, sans-serif' font-size='11' font-weight='normal' fill='#616e7c' text-anchor='middle'>7 · Settings</text>
+  <rect x='20' y='40' width='320' height='52' rx='10' fill='#e4e7eb' stroke='#e4e7eb' stroke-width='1.5'/>
+  <text x='36' y='72' font-family='Inter, Roboto, Arial, sans-serif' font-size='20' font-weight='normal' fill='#1f2933' text-anchor='start'>←</text>
+  <text x='64' y='72' font-family='Inter, Roboto, Arial, sans-serif' font-size='17' font-weight='bold' fill='#1f2933' text-anchor='start'>Settings</text>
+  <text x='36' y='125' font-family='Inter, Roboto, Arial, sans-serif' font-size='14' font-weight='bold' fill='#1f2933' text-anchor='start'>Theme</text>
+  <rect x='32.0' y='137' width='98.66666666666667' height='38' rx='8' fill='#5b6cff' stroke='#5b6cff' stroke-width='1.5'/>
+  <text x='81.33333333333334' y='161' font-family='Inter, Roboto, Arial, sans-serif' font-size='12' font-weight='normal' fill='#ffffff' text-anchor='middle'>Follow system</text>
+  <rect x='130.66666666666669' y='137' width='98.66666666666667' height='38' rx='8' fill='#ffffff' stroke='#5b6cff' stroke-width='1.5'/>
+  <text x='180.00000000000003' y='161' font-family='Inter, Roboto, Arial, sans-serif' font-size='12' font-weight='normal' fill='#5b6cff' text-anchor='middle'>Light</text>
+  <rect x='229.33333333333334' y='137' width='98.66666666666667' height='38' rx='8' fill='#ffffff' stroke='#5b6cff' stroke-width='1.5'/>
+  <text x='278.6666666666667' y='161' font-family='Inter, Roboto, Arial, sans-serif' font-size='12' font-weight='normal' fill='#5b6cff' text-anchor='middle'>Dark</text>
+  <text x='36' y='210' font-family='Inter, Roboto, Arial, sans-serif' font-size='14' font-weight='bold' fill='#1f2933' text-anchor='start'>Language</text>
+  <rect x='32.0' y='222' width='98.66666666666667' height='38' rx='8' fill='#ffffff' stroke='#5b6cff' stroke-width='1.5'/>
+  <text x='81.33333333333334' y='246' font-family='Inter, Roboto, Arial, sans-serif' font-size='12' font-weight='normal' fill='#5b6cff' text-anchor='middle'>Follow system</text>
+  <rect x='130.66666666666669' y='222' width='98.66666666666667' height='38' rx='8' fill='#5b6cff' stroke='#5b6cff' stroke-width='1.5'/>
+  <text x='180.00000000000003' y='246' font-family='Inter, Roboto, Arial, sans-serif' font-size='12' font-weight='normal' fill='#ffffff' text-anchor='middle'>English</text>
+  <rect x='229.33333333333334' y='222' width='98.66666666666667' height='38' rx='8' fill='#ffffff' stroke='#5b6cff' stroke-width='1.5'/>
+  <text x='278.6666666666667' y='246' font-family='Inter, Roboto, Arial, sans-serif' font-size='12' font-weight='normal' fill='#5b6cff' text-anchor='middle'>العربية</text>
+  <text x='36' y='300' font-family='Inter, Roboto, Arial, sans-serif' font-size='14' font-weight='bold' fill='#1f2933' text-anchor='start'>Notifications</text>
+  <rect x='276' y='284' width='50' height='26' rx='13' fill='#5b6cff' stroke='#5b6cff' stroke-width='1.5'/>
+  <circle cx='313' cy='297' r='10' fill='#ffffff' stroke='#ffffff' stroke-width='1.5'/>
+  <text x='36' y='350' font-family='Inter, Roboto, Arial, sans-serif' font-size='14' font-weight='normal' fill='#d64545' text-anchor='start'>Reset settings</text>
+  <line x1='32' y1='370' x2='328' y2='370' stroke='#e4e7eb' stroke-width='1.5'/>
+  <rect x='32' y='390' width='296' height='170' rx='14' fill='#ffffff' stroke='#9aa5b1' stroke-width='1.5'/>
+  <text x='48' y='420' font-family='Inter, Roboto, Arial, sans-serif' font-size='15' font-weight='bold' fill='#1f2933' text-anchor='start'>Invite and feedback</text>
+  <text x='48' y='445' font-family='Inter, Roboto, Arial, sans-serif' font-size='12' font-weight='normal' fill='#52606d' text-anchor='start'>Tell your family and friends about La Familia</text>
+  <rect x='48' y='465' width='264' height='38' rx='19' fill='#5b6cff' stroke='#5b6cff' stroke-width='1.5'/>
+  <text x='180.0' y='489' font-family='Inter, Roboto, Arial, sans-serif' font-size='13' font-weight='normal' fill='#ffffff' text-anchor='middle'>Invite friends  (share Intent)</text>
+  <rect x='48' y='512' width='264' height='38' rx='19' fill='#ffffff' stroke='#5b6cff' stroke-width='1.5'/>
+  <text x='180.0' y='536' font-family='Inter, Roboto, Arial, sans-serif' font-size='13' font-weight='normal' fill='#5b6cff' text-anchor='middle'>Send feedback  (email Intent)</text>
+  <text x='180.0' y='600' font-family='Inter, Roboto, Arial, sans-serif' font-size='11' font-weight='normal' fill='#7b8794' text-anchor='middle'>Arabic flips the whole layout to right-to-left</text>
+</svg>
