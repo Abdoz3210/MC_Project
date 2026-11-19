@@ -1,0 +1,41 @@
+<svg xmlns='http://www.w3.org/2000/svg' width='360' height='720' viewBox='0 0 360 720' role='img' aria-label='Settings screen wireframe'>
+  <title>Settings screen wireframe</title>
+  <rect x='0' y='0' width='360' height='720' rx='0' fill='#0B0706'/>
+  <rect x='8' y='8' width='344' height='704' rx='28' fill='#1A110F' stroke='#938F99' stroke-width='2'/>
+  <rect x='150' y='18' width='60' height='6' rx='3' fill='#49454F'/>
+  <text x='180.0' y='719' font-family='Roboto, Inter, Arial, sans-serif' font-size='10' font-weight='normal' fill='#CAC4D0' text-anchor='middle'>7 · Settings</text>
+  <path d='M46,66 L31,66 M37,60 L31,66 L37,72' fill='none' stroke='#E6E0E9' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/>
+  <text x='64' y='73' font-family='Roboto, Inter, Arial, sans-serif' font-size='20' font-weight='normal' fill='#E6E0E9' text-anchor='start'>Settings</text>
+  <text x='28' y='116' font-family='Roboto, Inter, Arial, sans-serif' font-size='16' font-weight='500' fill='#FFB4A1' text-anchor='start'>Theme</text>
+  <circle cx='40' cy='140' r='10' fill='#1A110F' stroke='#CAC4D0' stroke-width='2'/>
+  <text x='64' y='145' font-family='Roboto, Inter, Arial, sans-serif' font-size='15' font-weight='normal' fill='#E6E0E9' text-anchor='start'>Follow system</text>
+  <circle cx='40' cy='172' r='10' fill='#1A110F' stroke='#CAC4D0' stroke-width='2'/>
+  <text x='64' y='177' font-family='Roboto, Inter, Arial, sans-serif' font-size='15' font-weight='normal' fill='#E6E0E9' text-anchor='start'>Light</text>
+  <circle cx='40' cy='204' r='10' fill='#1A110F' stroke='#FFB4A1' stroke-width='2'/>
+  <circle cx='40' cy='204' r='5' fill='#FFB4A1'/>
+  <text x='64' y='209' font-family='Roboto, Inter, Arial, sans-serif' font-size='15' font-weight='normal' fill='#E6E0E9' text-anchor='start'>Dark</text>
+  <line x1='28' y1='222' x2='332' y2='222' stroke='#49454F' stroke-width='1'/>
+  <text x='28' y='250' font-family='Roboto, Inter, Arial, sans-serif' font-size='16' font-weight='500' fill='#FFB4A1' text-anchor='start'>Language</text>
+  <circle cx='40' cy='274' r='10' fill='#1A110F' stroke='#CAC4D0' stroke-width='2'/>
+  <text x='64' y='279' font-family='Roboto, Inter, Arial, sans-serif' font-size='15' font-weight='normal' fill='#E6E0E9' text-anchor='start'>Follow system</text>
+  <circle cx='40' cy='306' r='10' fill='#1A110F' stroke='#FFB4A1' stroke-width='2'/>
+  <circle cx='40' cy='306' r='5' fill='#FFB4A1'/>
+  <text x='64' y='311' font-family='Roboto, Inter, Arial, sans-serif' font-size='15' font-weight='normal' fill='#E6E0E9' text-anchor='start'>English</text>
+  <circle cx='40' cy='338' r='10' fill='#1A110F' stroke='#CAC4D0' stroke-width='2'/>
+  <text x='64' y='343' font-family='Roboto, Inter, Arial, sans-serif' font-size='15' font-weight='normal' fill='#E6E0E9' text-anchor='start'>العربية</text>
+  <line x1='28' y1='356' x2='332' y2='356' stroke='#49454F' stroke-width='1'/>
+  <text x='28' y='388' font-family='Roboto, Inter, Arial, sans-serif' font-size='16' font-weight='normal' fill='#E6E0E9' text-anchor='start'>Notifications</text>
+  <rect x='280' y='368' width='52' height='32' rx='16' fill='#FFB4A1'/>
+  <circle cx='316' cy='384' r='12' fill='#601600'/>
+  <line x1='28' y1='416' x2='332' y2='416' stroke='#49454F' stroke-width='1'/>
+  <text x='28' y='444' font-family='Roboto, Inter, Arial, sans-serif' font-size='16' font-weight='500' fill='#FFB4A1' text-anchor='start'>Invite and feedback</text>
+  <text x='28' y='466' font-family='Roboto, Inter, Arial, sans-serif' font-size='13' font-weight='normal' fill='#E6E0E9' text-anchor='start'>Tell your family and friends about La Familia,</text>
+  <text x='28' y='484' font-family='Roboto, Inter, Arial, sans-serif' font-size='13' font-weight='normal' fill='#E6E0E9' text-anchor='start'>or send us your feedback.</text>
+  <rect x='28' y='500' width='304' height='44' rx='22' fill='#FFB4A1'/>
+  <text x='180.0' y='528' font-family='Roboto, Inter, Arial, sans-serif' font-size='14' font-weight='500' fill='#601600' text-anchor='middle'>Invite friends</text>
+  <rect x='28' y='552' width='304' height='44' rx='22' fill='#1A110F' stroke='#938F99' stroke-width='1'/>
+  <text x='180.0' y='580' font-family='Roboto, Inter, Arial, sans-serif' font-size='14' font-weight='500' fill='#FFB4A1' text-anchor='middle'>Send feedback</text>
+  <line x1='28' y1='612' x2='332' y2='612' stroke='#49454F' stroke-width='1'/>
+  <rect x='28' y='628' width='304' height='44' rx='22' fill='#1A110F' stroke='#938F99' stroke-width='1'/>
+  <text x='180.0' y='656' font-family='Roboto, Inter, Arial, sans-serif' font-size='14' font-weight='500' fill='#FFB4A1' text-anchor='middle'>Reset settings</text>
+</svg>
