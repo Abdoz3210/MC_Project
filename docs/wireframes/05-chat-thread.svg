@@ -1,0 +1,32 @@
+<svg xmlns='http://www.w3.org/2000/svg' width='360' height='720' viewBox='0 0 360 720' role='img' aria-label='Chat thread screen wireframe'>
+  <title>Chat thread screen wireframe</title>
+  <defs><marker id='arrow' viewBox='0 0 10 10' refX='9' refY='5' markerWidth='7' markerHeight='7' orient='auto-start-reverse'><path d='M0,0 L10,5 L0,10 z' fill='#1f2933'/></marker></defs>
+  <rect width='100%' height='100%' fill='#f5f7fa'/>
+  <rect x='8' y='8' width='344' height='704' rx='28' fill='#ffffff' stroke='#1f2933' stroke-width='1.5'/>
+  <rect x='140' y='18' width='80' height='8' rx='4' fill='#e4e7eb' stroke='#e4e7eb' stroke-width='1.5'/>
+  <text x='180.0' y='716' font-family='Inter, Roboto, Arial, sans-serif' font-size='11' font-weight='normal' fill='#616e7c' text-anchor='middle'>5 · Chat thread</text>
+  <rect x='20' y='40' width='320' height='52' rx='10' fill='#e4e7eb' stroke='#e4e7eb' stroke-width='1.5'/>
+  <text x='36' y='72' font-family='Inter, Roboto, Arial, sans-serif' font-size='20' font-weight='normal' fill='#1f2933' text-anchor='start'>←</text>
+  <text x='64' y='72' font-family='Inter, Roboto, Arial, sans-serif' font-size='17' font-weight='bold' fill='#1f2933' text-anchor='start'>Mom</text>
+  <rect x='32' y='120' width='188.20000000000002' height='38' rx='16' fill='#e4e7eb' stroke='#e4e7eb' stroke-width='1.5'/>
+  <text x='44' y='144' font-family='Inter, Roboto, Arial, sans-serif' font-size='13' font-weight='normal' fill='#1f2933' text-anchor='start'>Are you coming tonight?</text>
+  <rect x='213.8' y='172' width='114.2' height='38' rx='16' fill='#5b6cff' stroke='#5b6cff' stroke-width='1.5'/>
+  <text x='225.8' y='196' font-family='Inter, Roboto, Arial, sans-serif' font-size='13' font-weight='normal' fill='#ffffff' text-anchor='start'>Yes, around 8</text>
+  <text x='326' y='226' font-family='Inter, Roboto, Arial, sans-serif' font-size='10' font-weight='normal' fill='#7b8794' text-anchor='end'>Read</text>
+  <rect x='32' y='244' width='195.60000000000002' height='38' rx='16' fill='#e4e7eb' stroke='#e4e7eb' stroke-width='1.5'/>
+  <text x='44' y='268' font-family='Inter, Roboto, Arial, sans-serif' font-size='13' font-weight='normal' fill='#1f2933' text-anchor='start'>Great, see you at dinner</text>
+  <rect x='206.39999999999998' y='296' width='121.60000000000001' height='38' rx='16' fill='#5b6cff' stroke='#5b6cff' stroke-width='1.5'/>
+  <text x='218.39999999999998' y='320' font-family='Inter, Roboto, Arial, sans-serif' font-size='13' font-weight='normal' fill='#ffffff' text-anchor='start'>Bring dessert?</text>
+  <text x='326' y='350' font-family='Inter, Roboto, Arial, sans-serif' font-size='10' font-weight='normal' fill='#7b8794' text-anchor='end'>Delivered</text>
+  <rect x='243.39999999999998' y='368' width='84.60000000000001' height='38' rx='16' fill='#5b6cff' stroke='#5b6cff' stroke-width='1.5'/>
+  <text x='255.39999999999998' y='392' font-family='Inter, Roboto, Arial, sans-serif' font-size='13' font-weight='normal' fill='#ffffff' text-anchor='start'>On my way</text>
+  <text x='326' y='422' font-family='Inter, Roboto, Arial, sans-serif' font-size='10' font-weight='normal' fill='#d64545' text-anchor='end'>Failed · tap to retry</text>
+  <text x='36' y='510' font-family='Inter, Roboto, Arial, sans-serif' font-size='11' font-weight='normal' fill='#7b8794' text-anchor='start'>long-press own message → Edit / Delete</text>
+  <rect x='20' y='540' width='320' height='30' rx='8' fill='#fff8e1' stroke='#f0b429' stroke-width='1.5'/>
+  <text x='32' y='560' font-family='Inter, Roboto, Arial, sans-serif' font-size='12' font-weight='normal' fill='#1f2933' text-anchor='start'>Editing message</text>
+  <text x='328' y='560' font-family='Inter, Roboto, Arial, sans-serif' font-size='12' font-weight='normal' fill='#5b6cff' text-anchor='end'>Cancel</text>
+  <rect x='20' y='590' width='264' height='48' rx='24' fill='#ffffff' stroke='#9aa5b1' stroke-width='1.5'/>
+  <text x='40' y='619' font-family='Inter, Roboto, Arial, sans-serif' font-size='13' font-weight='normal' fill='#7b8794' text-anchor='start'>Type a message</text>
+  <circle cx='314' cy='614' r='24' fill='#5b6cff' stroke='#5b6cff' stroke-width='1.5'/>
+  <path d='M307,606 L324,614 L307,622 L311,614 Z' fill='#ffffff' stroke='#ffffff' stroke-width='1.2' stroke-linecap='round' stroke-linejoin='round'/>
+</svg>
