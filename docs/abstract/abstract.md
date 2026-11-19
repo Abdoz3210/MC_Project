@@ -1,7 +1,11 @@
 # La Familia: an offline-first family chat app for Android
 
 **Course:** Mobile Computing (FNI 421) - Phase 1
-**Team:** (write the six names here)
+**Team 43:** Rana Ahmed ElAhmedy, Abdelrhman Salah Ahmed, Alaa Ahmed Yagoub Eissa,
+Abdelrhman Abdelrahman Hosnie Abdelradi, Youssef Emad, Muhammed Kamel
+
+> The formatted 2-page ACM version is [`abstract.tex`](abstract.tex) (PDF: [`../abstract.pdf`](../abstract.pdf)).
+> This Markdown file is the earlier plain-text draft.
 
 ## Abstract
 
@@ -27,4 +31,4 @@ Jetpack Compose, Room, WorkManager, Firebase, offline-first, DataStore, Android 
 | Firebase | Authentication and Firestore real-time sync |
 | Localisation | English and Arabic with RTL |
 
-(Trim or expand to exactly two pages when formatting the final PDF, and add the screenshots.)
+(The ACM version in `abstract.tex` supersedes this draft.)

@@ -1,6 +1,7 @@
 package com.lafamilia.app
 
 import com.lafamilia.app.util.InviteText
+import org.junit.Assert.assertFalse
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertTrue
 import org.junit.Test
@@ -32,5 +33,12 @@ class InviteTextTest {
         val body = InviteText.feedbackBody("1.0", 34)
         assertTrue(body.contains("App version: 1.0"))
         assertTrue(body.contains("Android: 34"))
+    }
+
+    @Test
+    fun feedbackEmailIsARealAddress() {
+        val email = InviteText.FEEDBACK_EMAIL
+        assertTrue(email.matches(Regex("[^@\\s]+@[^@\\s]+\\.[a-z]{2,}")))
+        assertFalse(email.endsWith("@example.com"))
     }
 }

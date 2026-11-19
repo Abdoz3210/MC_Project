@@ -5,17 +5,13 @@ import android.content.ActivityNotFoundException
 import android.content.Context
 import android.content.ContextWrapper
 import android.content.Intent
-import android.net.Uri
+import androidx.core.net.toUri
 
 /** Walks up the Context wrappers until it finds the Activity (Compose may hand us a wrapper). */
-fun Context.findActivity(): Activity? {
-    var current: Context? = this
-    while (current is ContextWrapper) {
-        if (current is Activity) return current
-        current = current.baseContext
-    }
-    return null
-}
+fun Context.findActivity(): Activity? =
+    generateSequence(this) { (it as? ContextWrapper)?.baseContext }
+        .filterIsInstance<Activity>()
+        .firstOrNull()
 
 /**
  * Implicit Intents: we describe WHAT we want (share text, write an email) and Android shows
@@ -35,7 +31,7 @@ object IntentHelper {
     /** ACTION_SENDTO with a mailto: URI opens only email apps, with the fields pre-filled. */
     fun sendEmail(context: Context, address: String, subject: String, body: String): Boolean {
         val email = Intent(Intent.ACTION_SENDTO).apply {
-            data = Uri.parse("mailto:")
+            data = "mailto:".toUri()
             putExtra(Intent.EXTRA_EMAIL, arrayOf(address))
             putExtra(Intent.EXTRA_SUBJECT, subject)
             putExtra(Intent.EXTRA_TEXT, body)
