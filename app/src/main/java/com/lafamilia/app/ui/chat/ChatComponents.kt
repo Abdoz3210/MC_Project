@@ -36,6 +36,18 @@ private fun statusText(status: MessageStatus): String = stringResource(
     }
 )
 
+/**
+ * Ticks next to your own messages (issue #45): one tick = on the server, two ticks = reached
+ * the other phone, two ticks in the accent colour = read. The word is kept next to the ticks,
+ * so the meaning does not depend on colour alone.
+ */
+internal fun statusTicks(status: MessageStatus): String = when (status) {
+    MessageStatus.QUEUED, MessageStatus.SENDING -> "\u25F7"   // ◷ clock: waiting
+    MessageStatus.SENT -> "\u2713"                            // ✓
+    MessageStatus.DELIVERED, MessageStatus.READ -> "\u2713\u2713" // ✓✓
+    MessageStatus.FAILED -> "!"
+}
+
 /** One chat bubble. Mine sit on the end side (right in English, left in Arabic). */
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
@@ -72,6 +84,16 @@ internal fun MessageBubble(
                         style = MaterialTheme.typography.labelSmall
                     )
                     if (mine) {
+                        val read = message.status == MessageStatus.READ
+                        Text(
+                            text = statusTicks(message.status),
+                            style = MaterialTheme.typography.labelSmall,
+                            color = when {
+                                failed -> MaterialTheme.colorScheme.error
+                                read -> MaterialTheme.colorScheme.primary
+                                else -> content
+                            }
+                        )
                         Text(
                             text = if (failed) "${statusText(message.status)} - ${stringResource(R.string.chat_tap_retry)}"
                             else statusText(message.status),

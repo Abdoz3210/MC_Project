@@ -1,0 +1,176 @@
+% La Familia: two-page extended abstract, ACM format (acmart, sigconf).
+% Build on Overleaf: New Project -> Upload Project (this file), or open the
+% "ACM Conference Proceedings Primary Article Template" and replace main.tex with it.
+% Compiler: pdfLaTeX. Result must be exactly two pages; see the notes at the end.
+\documentclass[sigconf,nonacm]{acmart}
+
+\usepackage{booktabs}
+
+\settopmatter{printacmref=false, printccs=false, printfolios=false}
+\pagestyle{plain}
+
+\begin{document}
+
+\title{La Familia: An Offline-First Family Chat App for Android}
+\subtitle{Mobile Computing (FNI-421), Phase~1}
+
+\author{Rana Ahmed ElAhmedy}
+\affiliation{\institution{Mobile Computing (FNI-421), Team 43}\country{}}
+\author{Abdelrhman Salah Ahmed}
+\affiliation{\institution{Mobile Computing (FNI-421), Team 43}\country{}}
+\author{Alaa Ahmed Yagoub Eissa}
+\affiliation{\institution{Mobile Computing (FNI-421), Team 43}\country{}}
+\author{Abdelrhman Abdelrahman Hosnie Abdelradi}
+\affiliation{\institution{Mobile Computing (FNI-421), Team 43}\country{}}
+\author{Youssef Emad}
+\affiliation{\institution{Mobile Computing (FNI-421), Team 43}\country{}}
+\author{Muhammed Kamel}
+\affiliation{\institution{Mobile Computing (FNI-421), Team 43}\country{}}
+
+\renewcommand{\shortauthors}{ElAhmedy et al.}
+
+\begin{abstract}
+Messaging apps assume a stable connection, yet many families live with slow or
+interrupted mobile data. La Familia is an Android chat app in which a conversation
+never depends on the network being available at the moment a message is written.
+It is built with Kotlin and Jetpack Compose; a Room database is the single source of
+truth, WorkManager delivers queued messages with exponential back-off, and Firebase
+Firestore synchronises devices in real time. The app supports accounts, user search,
+one-to-one chats with edit, delete and retry, delivered and read receipts,
+per-user pin, mute and archive, English and Arabic with right-to-left layout, light and
+dark themes saved with DataStore, and sharing through implicit Intents. Business rules
+are pure Kotlin functions covered by 51 unit tests, and the project passes Android lint
+with no warnings.
+\end{abstract}
+
+\keywords{Android, Jetpack Compose, Room, WorkManager, Firebase Firestore, DataStore,
+offline-first, Intents, localisation}
+
+\maketitle
+
+\section{Problem}
+Popular messengers treat the network as always present: when the connection drops, the
+composer still accepts text but the message silently waits, fails, or is lost when the
+app is closed. Families who share a single data plan or live in areas with weak coverage
+need the opposite behaviour. A message written offline should be saved at once, shown
+with an honest status, and delivered automatically later, and the history of every
+conversation should be readable without a connection. Our goal for Phase~1 was a
+complete, small messenger that demonstrates this offline-first design together with the
+course topics: a Compose user interface, Intents, persistence with full CRUD, and clean,
+tested Kotlin.
+
+\section{Solution and Architecture}
+La Familia is a single-activity app with unidirectional data flow. Each screen is a
+composable driven by a \texttt{ViewModel} that exposes one immutable UI-state object
+through a Kotlin \texttt{StateFlow}; user actions are plain function calls back into the
+ViewModel. Screens only know a \texttt{ChatRepository} interface, which let six team
+members build their parts in parallel against one contract.
+
+\textbf{Room as the single source of truth.} The production repository reads
+conversations and messages only from Room. DAO queries return \texttt{Flow}s, so the
+user interface redraws itself whenever a row changes, whether the change came from the
+user or from the server.
+
+\textbf{Outbox with WorkManager.} Sending a message inserts it into Room with the status
+\textsc{queued} and enqueues a unique WorkManager job with a network constraint and
+exponential back-off. The worker writes the message to Firestore in a batch with the
+conversation's last-message preview. Because the document id is fixed, a retry can never
+create a duplicate. After repeated failures the message becomes \textsc{failed} and the
+user can tap it to retry.
+
+\textbf{Firestore to Room.} A snapshot listener on the user's conversations, and one on
+each conversation's messages, copies additions, edits and deletions into Room. The
+receiving phone writes a \texttt{deliveredAt} timestamp when a message arrives and a
+\texttt{readAt} timestamp when the chat is opened; the sender's phone turns them into
+\textsc{delivered} and \textsc{read}. A pure rule only lets a status move forward, so a
+late update can never turn ``read'' back into ``delivered''.
+
+\textbf{Security.} Firestore rules allow a signed-in user to read public profiles and to
+change only their own. Conversations and messages are visible only to members, only the
+sender may edit or delete a message, and the other member may add nothing except the two
+receipt fields.
+
+\section{Features}
+Table~\ref{tab:features} maps the features to the course topics they demonstrate.
+
+\begin{table}[h]
+  \caption{Features and the topics they cover}
+  \label{tab:features}
+  \small
+  \begin{tabular}{@{}p{0.30\linewidth}p{0.64\linewidth}@{}}
+    \toprule
+    Topic & Implementation in La Familia \\
+    \midrule
+    Compose UI & Six screens in Material~3 (login, register, chat list, chat thread,
+                 profile, settings) plus a new-chat dialog; navigation with an auth gate \\
+    Intents & Invite through the share sheet (\texttt{ACTION\_SEND} with a chooser) and
+              feedback e-mail (\texttt{ACTION\_SENDTO}, \texttt{mailto:}) \\
+    Room CRUD & Create, read, edit and delete messages; create, update and remove
+                conversations; schema migration from version~1 to~2 \\
+    DataStore & Theme, language and notification settings, with reset \\
+    Background work & WorkManager outbox with constraints and back-off \\
+    Firebase & E-mail/password authentication and real-time Firestore sync \\
+    Localisation & English and Arabic with automatic right-to-left mirroring \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\textbf{Accounts.} Registration and login use Firebase Authentication with input
+validation and a password-strength hint. A signed-in user skips the login screen, and
+each user has a public profile (name and status) that others can search by name.
+
+\textbf{Conversations.} The list shows the last message, its time and an unread badge,
+and can be searched. A long press opens a menu to pin, mute, archive or remove a chat.
+These choices are stored per user, so two members of the same conversation can organise
+it differently. Pinned chats stay on top and archived chats move to their own section.
+
+\textbf{Messages.} Bubbles show the time and a status with ticks (one tick when the
+server has the message, two when it reached the other phone, two in the accent colour
+when it was read). Users can edit or delete their own messages.
+
+\textbf{Personalisation.} Language and theme can be changed at runtime without
+restarting the app. Choosing Arabic mirrors every screen to right-to-left.
+
+\section{Implementation and Results}
+The app targets Android~8.0 (API~26) and newer and is written entirely in Kotlin, with
+Jetpack Compose, Navigation Compose, Lifecycle ViewModels, Room with KSP, WorkManager,
+Preferences DataStore and the Firebase BoM.
+
+Rules that do not need Android, such as input validation, password strength, who may
+edit a message, time formatting, conversation filtering and ordering, entity mapping and
+status transitions, are pure Kotlin functions. They are covered by 51 JVM unit tests,
+together with an in-memory fake of the repository used to test create, read, update and
+delete without a device. All tests pass, Android lint reports no issues, and the build
+has no compiler warnings. The code uses \texttt{val} by default, no non-null assertions
+(\texttt{!!}), and Kotlin idioms such as scope functions, sequences and KTX helpers.
+
+The work was split into six parts, one per member (foundation and accounts; conversation
+list; chat thread; Room, Firestore and WorkManager; settings, theme and localisation;
+Intents, tests and documentation). Each part was delivered as its own pull request
+against the shared repository contract and reviewed before merging. Because every read
+comes from Room, conversations stay readable in airplane mode; a message written offline
+shows ``waiting'' and is delivered automatically when the connection returns, and
+settings survive restarts.
+
+\section{Conclusion}
+La Familia shows that an offline-first design is practical for a small team: treating
+the local database as the source of truth and the network as a synchronisation channel
+makes the app fast, honest about message status, and usable with poor connectivity.
+Future work includes group chats, push notifications, typing indicators, an offline
+banner and layouts tuned for tablets.
+
+% ---------------------------------------------------------------------------
+% Notes for the team (not printed):
+% * The course asks for EXACTLY two pages. Compile and check the page count:
+%   - more than two pages: shorten "Features" or the table first;
+%   - less than two pages: add a figure with two app screenshots, e.g.
+%       \begin{figure}[h]\centering
+%         \includegraphics[width=0.48\linewidth]{chatlist.png}\hfill
+%         \includegraphics[width=0.48\linewidth]{chat.png}
+%         \caption{Chat list and chat thread (light theme).}\end{figure}
+%     (upload the PNGs to Overleaf next to this file).
+% * Two members must peer-review the text before the PDF is added to the repo.
+% * Before submitting, confirm on a device what the text claims: airplane mode keeps chats
+%   readable, an offline message shows "waiting" then sends, settings survive a restart,
+%   and receipts / pin / mute / archive work (PRs #95 and #96 must be merged).
+\end{document}
